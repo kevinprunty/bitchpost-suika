@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://72xnm6djh5s4"]
+
+[ext_resource type="Script" path="res://balls/ball_types/dekopan_check.gd" id="1_5e2j7"]
+[ext_resource type="Texture2D" uid="uid://bgyyc2pp84ky4" path="res://sprites/fruits/circles/wormdick.png" id="2_hn2ys"]
+[ext_resource type="Script" path="res://balls/method_scripts/dekopan_method.gd" id="3_kn6mk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0pesg"]
+radius = 69.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6onn"]
+radius = 70.0
+
+[node name="WormDick" type="Node2D"]
+script = ExtResource("1_5e2j7")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Wormdick" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(2.98023e-07, 1.01328e-06)
+scale = Vector2(0.23, 0.23)
+texture = ExtResource("2_hn2ys")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_0pesg")
+
+[node name="combine hitbox" type="Area2D" parent="RigidBody2D"]
+script = ExtResource("3_kn6mk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/combine hitbox"]
+shape = SubResource("CircleShape2D_b6onn")
+
+[connection signal="area_entered" from="RigidBody2D/combine hitbox" to="." method="_on_combine_hitbox_area_entered"]

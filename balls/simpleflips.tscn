@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8cbvcvin06fw"]
+
+[ext_resource type="Script" path="res://balls/ball_types/watermelon_check.gd" id="1_j4s87"]
+[ext_resource type="Script" path="res://balls/method_scripts/watermelon_method.gd" id="2_gby3b"]
+[ext_resource type="Texture2D" uid="uid://wl1d6uaa5ks3" path="res://sprites/fruits/circles/simple.png" id="2_q6lul"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xsu7l"]
+radius = 108.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eb76g"]
+radius = 109.018
+
+[node name="Simpleflips" type="Node2D" groups=["ball"]]
+script = ExtResource("1_j4s87")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-9.83477e-07, 1.37091e-06)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_q6lul")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_xsu7l")
+
+[node name="combine hitbox" type="Area2D" parent="RigidBody2D"]
+script = ExtResource("2_gby3b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/combine hitbox"]
+shape = SubResource("CircleShape2D_eb76g")
+
+[connection signal="area_entered" from="RigidBody2D/combine hitbox" to="." method="_on_combine_hitbox_area_entered"]

@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://b80jgebtaxqj7"]
+
+[ext_resource type="Texture2D" uid="uid://dsrht624ed6ex" path="res://sprites/game board.png" id="1_tldra"]
+[ext_resource type="Script" path="res://Scripts/TestSpawner.gd" id="3_xuteu"]
+[ext_resource type="Script" path="res://Scripts/mover.gd" id="4_jmo0j"]
+
+[sub_resource type="Gradient" id="Gradient_d3a4o"]
+offsets = PackedFloat32Array(0, 0.493976, 1)
+colors = PackedColorArray(5.77569e-07, 0.413716, 0.47781, 1, 0.406475, 0.768776, 0.780325, 1, 0.494353, 0.792253, 0.957671, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x7oww"]
+gradient = SubResource("Gradient_d3a4o")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wfch5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v84ud"]
+size = Vector2(39.25, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtlaq"]
+size = Vector2(44, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1f77"]
+size = Vector2(589, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b4s"]
+size = Vector2(47, 49)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j75h1"]
+
+[node name="canvas" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(576.5, 326)
+scale = Vector2(4.53516, 652)
+texture = SubResource("GradientTexture1D_x7oww")
+
+[node name="Board" type="Node" parent="."]
+
+[node name="Game Board Sprite" type="Sprite2D" parent="Board"]
+position = Vector2(575, 362)
+scale = Vector2(0.920108, 0.898387)
+texture = ExtResource("1_tldra")
+
+[node name="jar collision" type="StaticBody2D" parent="Board"]
+position = Vector2(575, 362)
+scale = Vector2(0.920108, 0.898387)
+physics_material_override = SubResource("PhysicsMaterial_wfch5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Board/jar collision"]
+position = Vector2(6.62804e-05, -3.39693e-05)
+polygon = PackedVector2Array(-260.839, -310.557, -261.926, 299.425, 258.665, 299.426, 258.665, -310.557, 279.315, -310.557, 279.315, 320.575, -279.315, 321.688, -279.315, -310.557)
+
+[node name="mover collision" type="Node2D" parent="Board"]
+
+[node name="mov_col_left" type="StaticBody2D" parent="Board/mover collision"]
+position = Vector2(319, -78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/mover collision/mov_col_left"]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_v84ud")
+
+[node name="mov_col_right" type="StaticBody2D" parent="Board/mover collision"]
+position = Vector2(831, -87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/mover collision/mov_col_right"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_rtlaq")
+
+[node name="death zone" type="Area2D" parent="Board"]
+position = Vector2(563, 89)
+
+[node name="death col" type="CollisionShape2D" parent="Board/death zone"]
+visible = false
+position = Vector2(7.5, -42)
+shape = SubResource("RectangleShape2D_h1f77")
+
+[node name="move and spawn" type="Node2D" parent="Board"]
+position = Vector2(563, 47)
+
+[node name="collider" type="Node2D" parent="Board/move and spawn"]
+position = Vector2(0, -125)
+
+[node name="mover_controller" type="CharacterBody2D" parent="Board/move and spawn/collider"]
+script = ExtResource("4_jmo0j")
+
+[node name="TestSpawner" type="Node" parent="Board/move and spawn/collider/mover_controller"]
+script = ExtResource("3_xuteu")
+spawn_location_path = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/move and spawn/collider/mover_controller"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_k1b4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/move and spawn/collider/mover_controller"]
+modulate = Color(1, 0.407843, 1, 0.498039)
+position = Vector2(0.491283, 353.226)
+scale = Vector2(-3.26252, 708.452)
+texture = SubResource("CanvasTexture_j75h1")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-424, 47)

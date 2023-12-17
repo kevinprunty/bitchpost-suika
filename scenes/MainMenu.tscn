@@ -1,0 +1,109 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd4yjgsvfnvrp"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="1_8yp6e"]
+[ext_resource type="Script" path="res://Scripts/MainMenuHide.gd" id="1_vx2ul"]
+[ext_resource type="Script" path="res://Scripts/Load_data.gd" id="2_axqn0"]
+[ext_resource type="Script" path="res://Scripts/save_data.gd" id="3_7qsol"]
+[ext_resource type="Script" path="res://Scripts/mm_score.gd" id="5_tcicf"]
+
+[node name="MainMenu" type="Control" groups=["menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_vx2ul")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.0
+offset_top = 48.0
+offset_right = 182.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 53
+text = "Lil-þitch-Suika"
+metadata/_edit_use_anchors_ = true
+
+[node name="version number" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "v0.0.4"
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.381173
+anchor_right = 0.5
+anchor_bottom = 0.381173
+offset_left = -93.0
+offset_top = -47.0
+offset_right = 94.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 39
+text = "Play"
+script = ExtResource("1_8yp6e")
+metadata/_edit_use_anchors_ = true
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+offset_left = 670.0
+offset_top = 360.0
+offset_right = 857.0
+offset_bottom = 455.0
+theme_override_font_sizes/font_size = 39
+text = "Load"
+script = ExtResource("2_axqn0")
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.335938
+anchor_top = 0.628086
+anchor_right = 0.335938
+anchor_bottom = 0.628086
+offset_left = -93.0
+offset_top = -47.0
+offset_right = 94.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 39
+text = "Save"
+script = ExtResource("3_7qsol")
+metadata/_edit_use_anchors_ = true
+
+[node name="high score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -39.0
+offset_right = 150.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "High Score: 0"
+script = ExtResource("5_tcicf")
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Load" to="Load" method="_on_pressed"]
+[connection signal="pressed" from="Save" to="Save" method="_on_pressed"]

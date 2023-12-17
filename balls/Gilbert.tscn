@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bw1a4x0lufmy5"]
+
+[ext_resource type="Script" path="res://balls/ball_types/peach_check.gd" id="1_icht1"]
+[ext_resource type="Texture2D" uid="uid://c2hbbsso3encn" path="res://sprites/fruits/circles/gilgermage.png" id="2_n6p70"]
+[ext_resource type="Script" path="res://balls/method_scripts/peach_method.gd" id="3_qvd1t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wg4yg"]
+radius = 81.0062
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5iuro"]
+radius = 82.0244
+
+[node name="Gilbert" type="Node2D" groups=["ball"]]
+script = ExtResource("1_icht1")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(0, -3.33786e-06)
+scale = Vector2(0.865, 0.865)
+texture = ExtResource("2_n6p70")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_wg4yg")
+
+[node name="combine hitbox" type="Area2D" parent="RigidBody2D"]
+script = ExtResource("3_qvd1t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/combine hitbox"]
+shape = SubResource("CircleShape2D_5iuro")
+
+[connection signal="area_entered" from="RigidBody2D/combine hitbox" to="." method="_on_combine_hitbox_area_entered"]

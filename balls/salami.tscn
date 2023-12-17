@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://f05xiom1axdu"]
+
+[ext_resource type="Script" path="res://balls/ball_types/orange_check.gd" id="1_0hgvv"]
+[ext_resource type="Texture2D" uid="uid://ck4ckaojt0ghg" path="res://sprites/fruits/circles/salami.png" id="1_20lg6"]
+[ext_resource type="Script" path="res://balls/method_scripts/orange_func.gd" id="3_gpi64"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_igd7i"]
+radius = 530.377
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_br44x"]
+radius = 54.0833
+
+[node name="Salami" type="Node2D" groups=["ball"]]
+script = ExtResource("1_0hgvv")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 1.11
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(7.15256e-06, 9.53674e-07)
+scale = Vector2(0.736111, 0.741259)
+texture = ExtResource("1_20lg6")
+
+[node name="Physics Collider" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_igd7i")
+
+[node name="Combine Hitbox" type="Area2D" parent="RigidBody2D"]
+script = ExtResource("3_gpi64")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Combine Hitbox"]
+shape = SubResource("CircleShape2D_br44x")
+
+[connection signal="area_entered" from="RigidBody2D/Combine Hitbox" to="." method="_on_combine_hitbox_area_entered"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://ci0eftq5k7ggb"]
+
+[ext_resource type="Texture2D" uid="uid://bl2o4t3g8uyy4" path="res://sprites/fruits/circles/duckaccino.png" id="1_g08ng"]
+[ext_resource type="Script" path="res://balls/ball_types/tangerine_check.gd" id="1_o2nb2"]
+[ext_resource type="Script" path="res://balls/method_scripts/tangerine_method.gd" id="2_84xub"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_85lh3"]
+radius = 45.0111
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55btl"]
+radius = 46.0046
+
+[node name="Duckaccino" type="Node2D" groups=["ball"]]
+script = ExtResource("1_o2nb2")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-2.38419e-07, 4.05312e-06)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("1_g08ng")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_85lh3")
+
+[node name="combine hitbox" type="Area2D" parent="RigidBody2D"]
+scale = Vector2(1.01, 1.01)
+script = ExtResource("2_84xub")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/combine hitbox"]
+scale = Vector2(0.99, 0.99)
+shape = SubResource("CircleShape2D_55btl")
+
+[connection signal="area_entered" from="RigidBody2D/combine hitbox" to="." method="_on_combine_hitbox_area_entered"]

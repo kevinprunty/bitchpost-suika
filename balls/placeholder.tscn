@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxpp5pj6lyuss"]
+
+[ext_resource type="Texture2D" uid="uid://q4h3w12bqsnl" path="res://sprites/fruits/circles/placeholder.png" id="1_l8knl"]
+[ext_resource type="Script" path="res://balls/ball_types/pineapple_check.gd" id="1_x1gau"]
+[ext_resource type="Script" path="res://balls/method_scripts/pineapple_method.gd" id="3_i8rkm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s67sy"]
+radius = 103.005
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gltbe"]
+radius = 104.0
+
+[node name="Placeholder" type="Node2D" groups=["ball"]]
+script = ExtResource("1_x1gau")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_s67sy")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(3.45707e-06, -0.500006)
+scale = Vector2(0.686667, 0.683333)
+texture = ExtResource("1_l8knl")
+
+[node name="combine hitbox" type="Area2D" parent="RigidBody2D"]
+script = ExtResource("3_i8rkm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/combine hitbox"]
+shape = SubResource("CircleShape2D_gltbe")
+
+[connection signal="area_entered" from="RigidBody2D/combine hitbox" to="." method="_on_combine_hitbox_area_entered"]

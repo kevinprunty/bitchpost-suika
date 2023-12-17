@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://u5ef2saqnxh3"]
+
+[ext_resource type="Script" path="res://balls/ball_types/strawberry_check.gd" id="1_2dhoi"]
+[ext_resource type="Texture2D" uid="uid://cbb5tx4eb6ai0" path="res://sprites/fruits/circles/feature.png" id="2_hd7b1"]
+[ext_resource type="Script" path="res://balls/method_scripts/strawberry_method.gd" id="3_ndhse"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jj5wt"]
+radius = 21.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0lhtw"]
+radius = 16.4795
+
+[node name="Itsafeature" type="Node2D" groups=["ball"]]
+script = ExtResource("1_2dhoi")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-7.15256e-07, -7.15256e-07)
+scale = Vector2(0.210937, 0.210937)
+texture = ExtResource("2_hd7b1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(1.28, 1.28)
+shape = SubResource("CircleShape2D_jj5wt")
+
+[node name="combine hitbox" type="Area2D" parent="RigidBody2D"]
+scale = Vector2(1.28, 1.28)
+script = ExtResource("3_ndhse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/combine hitbox"]
+scale = Vector2(1.305, 1.305)
+shape = SubResource("CircleShape2D_0lhtw")
+
+[connection signal="area_entered" from="RigidBody2D/combine hitbox" to="." method="_on_combine_hitbox_area_entered"]

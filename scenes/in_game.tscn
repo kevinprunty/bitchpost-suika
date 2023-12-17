@@ -1,0 +1,365 @@
+[gd_scene load_steps=30 format=3 uid="uid://b80jgebtaxqj7"]
+
+[ext_resource type="Texture2D" uid="uid://dsrht624ed6ex" path="res://sprites/game board.png" id="1_tldra"]
+[ext_resource type="Script" path="res://Scripts/death zone.gd" id="2_s1ojk"]
+[ext_resource type="Script" path="res://Scripts/TestSpawner.gd" id="3_xuteu"]
+[ext_resource type="Script" path="res://Scripts/new_fruit_manager.gd" id="4_f6u0c"]
+[ext_resource type="Script" path="res://Scripts/mover.gd" id="4_jmo0j"]
+[ext_resource type="Texture2D" uid="uid://blhyofcypcujr" path="res://sprites/fruits/circles/mac.png" id="6_ctvet"]
+[ext_resource type="Texture2D" uid="uid://db2hw7huuc7g1" path="res://sprites/controlls panel.png" id="6_o8gc6"]
+[ext_resource type="Texture2D" uid="uid://5edqiawuvx5g" path="res://sprites/fruits/circles/unknown.png" id="7_2yi50"]
+[ext_resource type="Texture2D" uid="uid://cbb5tx4eb6ai0" path="res://sprites/fruits/circles/feature.png" id="8_50y1e"]
+[ext_resource type="Texture2D" uid="uid://ck4ckaojt0ghg" path="res://sprites/fruits/circles/salami.png" id="8_o15su"]
+[ext_resource type="Texture2D" uid="uid://ctfollchk4wb6" path="res://sprites/fruits/circles/chim.png" id="9_hmn5c"]
+[ext_resource type="Texture2D" uid="uid://dkpvppq451o5e" path="res://sprites/fruits/circles/list.png" id="10_awvog"]
+[ext_resource type="Texture2D" uid="uid://bl2o4t3g8uyy4" path="res://sprites/fruits/circles/duckaccino.png" id="10_k4x32"]
+[ext_resource type="Texture2D" uid="uid://bgyyc2pp84ky4" path="res://sprites/fruits/circles/wormdick.png" id="12_yxk14"]
+[ext_resource type="Texture2D" uid="uid://c2hbbsso3encn" path="res://sprites/fruits/circles/gilgermage.png" id="13_pr55h"]
+[ext_resource type="Texture2D" uid="uid://gl6idtlrlts1" path="res://sprites/fruits/circles/TOASTER.png" id="14_w1hlc"]
+[ext_resource type="Texture2D" uid="uid://d3qj6h24k30lo" path="res://sprites/fruits/circles/blue.png" id="15_k511n"]
+[ext_resource type="Texture2D" uid="uid://wl1d6uaa5ks3" path="res://sprites/fruits/circles/simple.png" id="16_bthih"]
+[ext_resource type="Texture2D" uid="uid://bhf8ts4k7hgjq" path="res://sprites/arrow.png" id="16_geq7m"]
+[ext_resource type="Script" path="res://Scripts/order_hider.gd" id="17_l3l20"]
+[ext_resource type="Script" path="res://Scripts/up_next.gd" id="20_flkpb"]
+
+[sub_resource type="Gradient" id="Gradient_d3a4o"]
+offsets = PackedFloat32Array(0, 0.493976, 1)
+colors = PackedColorArray(5.77569e-07, 0.413716, 0.47781, 1, 0.406475, 0.768776, 0.780325, 1, 0.494353, 0.792253, 0.957671, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_x7oww"]
+gradient = SubResource("Gradient_d3a4o")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wfch5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v84ud"]
+size = Vector2(39.25, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rtlaq"]
+size = Vector2(44, 54)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1f77"]
+size = Vector2(589, 86)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1b4s"]
+size = Vector2(47, 49)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_j75h1"]
+
+[node name="canvas" type="Node2D" groups=["disabled"]]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 325)
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -5
+position = Vector2(576.5, 326)
+scale = Vector2(4.53516, 652)
+texture = SubResource("GradientTexture1D_x7oww")
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(182, 33)
+
+[node name="Game Board Sprite" type="Sprite2D" parent="Board"]
+position = Vector2(393, 310)
+scale = Vector2(0.920108, 0.898387)
+texture = ExtResource("1_tldra")
+
+[node name="jar collision" type="StaticBody2D" parent="Board"]
+position = Vector2(393, 310)
+scale = Vector2(0.920108, 0.898387)
+physics_material_override = SubResource("PhysicsMaterial_wfch5")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Board/jar collision"]
+position = Vector2(0, -1.14441e-05)
+polygon = PackedVector2Array(-260.839, -310.557, -261.926, 299.425, 258.665, 299.426, 258.665, -310.557, 279.315, -310.557, 279.315, 320.575, -279.315, 321.688, -279.315, -310.557)
+
+[node name="mover collision" type="Node2D" parent="Board"]
+position = Vector2(-182, -52)
+
+[node name="mov_col_left" type="StaticBody2D" parent="Board/mover collision"]
+position = Vector2(319, -78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/mover collision/mov_col_left"]
+position = Vector2(5, 0)
+shape = SubResource("RectangleShape2D_v84ud")
+
+[node name="mov_col_right" type="StaticBody2D" parent="Board/mover collision"]
+position = Vector2(831, -87)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/mover collision/mov_col_right"]
+position = Vector2(-5, 0)
+shape = SubResource("RectangleShape2D_rtlaq")
+
+[node name="death zone" type="Area2D" parent="Board"]
+position = Vector2(381, 37)
+script = ExtResource("2_s1ojk")
+
+[node name="death col" type="CollisionShape2D" parent="Board/death zone"]
+position = Vector2(7.5, -42)
+shape = SubResource("RectangleShape2D_h1f77")
+
+[node name="move and spawn" type="Node2D" parent="Board"]
+position = Vector2(381, -5)
+
+[node name="collider" type="Node2D" parent="Board/move and spawn"]
+position = Vector2(0, -125)
+
+[node name="mover_controller" type="CharacterBody2D" parent="Board/move and spawn/collider"]
+script = ExtResource("4_jmo0j")
+
+[node name="TestSpawner" type="Node" parent="Board/move and spawn/collider/mover_controller"]
+script = ExtResource("3_xuteu")
+spawn_location_path = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Board/move and spawn/collider/mover_controller"]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_k1b4s")
+
+[node name="Sprite2D" type="Sprite2D" parent="Board/move and spawn/collider/mover_controller"]
+modulate = Color(1, 0.407843, 1, 0.498039)
+z_index = -2
+position = Vector2(0.491272, 353.226)
+rotation = 3.14159
+scale = Vector2(3.26252, -708.452)
+texture = SubResource("CanvasTexture_j75h1")
+
+[node name="balls_guide" type="Node2D" parent="Board"]
+position = Vector2(-182, -33)
+
+[node name="Mac" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(935, 135)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("6_ctvet")
+
+[node name="feature" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(1042.5, 135)
+scale = Vector2(0.253906, 0.257813)
+texture = ExtResource("8_50y1e")
+
+[node name="salami" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(935, 298.5)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("8_o15su")
+
+[node name="chim" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(935, 217)
+scale = Vector2(0.257812, 0.257812)
+texture = ExtResource("9_hmn5c")
+
+[node name="list" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(1042, 298.5)
+scale = Vector2(0.254, 0.254)
+texture = ExtResource("10_awvog")
+
+[node name="duck" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(1042, 217)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("10_k4x32")
+
+[node name="worm" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(935, 379.155)
+scale = Vector2(0.108, 0.108)
+texture = ExtResource("12_yxk14")
+
+[node name="gilbert" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(1042, 379.155)
+scale = Vector2(0.345, 0.345)
+texture = ExtResource("13_pr55h")
+
+[node name="toaster" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(935, 459.319)
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("14_w1hlc")
+
+[node name="melon_hider" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(1042, 459.319)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_k511n")
+
+[node name="watermelon_hider" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(986, 551)
+scale = Vector2(0.307, 0.307)
+texture = ExtResource("16_bthih")
+
+[node name="arrows" type="Node" parent="Board/balls_guide"]
+
+[node name="Arrow" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(990.5, 137)
+scale = Vector2(0.530001, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow2" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(991, 219)
+scale = Vector2(0.530001, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow3" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(991, 301)
+scale = Vector2(0.530001, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow4" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(991, 383)
+scale = Vector2(0.530001, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow5" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(991, 463)
+scale = Vector2(0.530001, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow6" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(985.157, 171.09)
+rotation = 2.4752
+scale = Vector2(0.768123, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow7" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(983.223, 257.611)
+rotation = 2.4752
+scale = Vector2(0.854396, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow8" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(983.223, 338.611)
+rotation = 2.4752
+scale = Vector2(0.817349, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow9" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(982.809, 419.937)
+rotation = 2.4752
+scale = Vector2(0.825352, 0.44)
+texture = ExtResource("16_geq7m")
+
+[node name="Arrow10" type="Sprite2D" parent="Board/balls_guide/arrows"]
+position = Vector2(1017, 494)
+rotation = 2.25563
+scale = Vector2(0.215721, 0.228874)
+texture = ExtResource("16_geq7m")
+
+[node name="Control" type="Control" parent="Board/balls_guide"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 902.0
+offset_top = 47.0
+offset_right = 1090.0
+offset_bottom = 87.0
+
+[node name="Label" type="Label" parent="Board/balls_guide/Control"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 18.0
+offset_right = 185.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 17
+text = "Combine 2 To Level Up"
+
+[node name="Ball_Manager" type="Node" parent="Board"]
+script = ExtResource("4_f6u0c")
+
+[node name="hiders" type="Node2D" parent="Board/Ball_Manager"]
+script = ExtResource("17_l3l20")
+
+[node name="Strawberry_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(1043.38, 133.625)
+scale = Vector2(0.6925, 0.6925)
+texture = ExtResource("7_2yi50")
+
+[node name="Tangerine_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(1042, 217)
+scale = Vector2(0.660001, 0.66)
+texture = ExtResource("7_2yi50")
+
+[node name="peach_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(1042, 379.155)
+scale = Vector2(0.650116, 0.650113)
+texture = ExtResource("7_2yi50")
+
+[node name="apple_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(1042, 298.383)
+scale = Vector2(0.65504, 0.655038)
+texture = ExtResource("7_2yi50")
+
+[node name="melon_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(1042, 459.319)
+scale = Vector2(0.645229, 0.645225)
+texture = ExtResource("7_2yi50")
+
+[node name="grape_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(935, 217)
+scale = Vector2(0.660001, 0.66)
+texture = ExtResource("7_2yi50")
+
+[node name="orange_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(935, 298.383)
+scale = Vector2(0.65504, 0.655038)
+texture = ExtResource("7_2yi50")
+
+[node name="dekopan_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(935, 379.155)
+scale = Vector2(0.650116, 0.650113)
+texture = ExtResource("7_2yi50")
+
+[node name="pineapple_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(935, 459.319)
+scale = Vector2(0.645229, 0.645225)
+texture = ExtResource("7_2yi50")
+
+[node name="watermelon_hider" type="Sprite2D" parent="Board/Ball_Manager/hiders"]
+position = Vector2(986, 551)
+scale = Vector2(1.10657, 1.10656)
+texture = ExtResource("7_2yi50")
+
+[node name="garbage_can" type="Node2D" parent="."]
+position = Vector2(-424, 47)
+
+[node name="ControllsPanel" type="Sprite2D" parent="."]
+position = Vector2(164, 411)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("6_o8gc6")
+
+[node name="up_next" type="Node2D" parent="."]
+position = Vector2(41, 65)
+script = ExtResource("20_flkpb")
+
+[node name="Mac" type="Sprite2D" parent="up_next"]
+position = Vector2(198.14, 88)
+scale = Vector2(0.258906, 0.26)
+texture = ExtResource("6_ctvet")
+
+[node name="feature" type="Sprite2D" parent="up_next"]
+visible = false
+position = Vector2(199, 88)
+scale = Vector2(0.253906, 0.257813)
+texture = ExtResource("8_50y1e")
+
+[node name="chim" type="Sprite2D" parent="up_next"]
+visible = false
+position = Vector2(198, 88)
+scale = Vector2(0.257812, 0.257812)
+texture = ExtResource("9_hmn5c")
+
+[node name="duck" type="Sprite2D" parent="up_next"]
+visible = false
+position = Vector2(198, 88)
+scale = Vector2(0.165, 0.165)
+texture = ExtResource("10_k4x32")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 41.0
+offset_top = 65.0
+offset_right = 287.0
+offset_bottom = 168.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 37
+text = "Up Next:"
+
+[connection signal="area_entered" from="Board/death zone" to="Board/death zone" method="_on_area_entered"]
