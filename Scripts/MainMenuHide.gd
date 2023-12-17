@@ -1,6 +1,5 @@
 extends Control
 
-
 func hide_screen():
 	hide()
 

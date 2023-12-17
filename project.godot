@@ -12,7 +12,7 @@ config_version=5
 
 config/name="lil-bitch-suika"
 config/description="combine fruits for infinite fortune"
-config/version="0.0.01"
+config/version="0.0.5"
 run/main_scene="res://scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 boot_splash/image="res://sprites/companylogo.png"
@@ -24,11 +24,11 @@ config/icon="res://sprites/program.png"
 
 NewFruitManager="*res://Scripts/new_fruit_manager.gd"
 SaveManager="*res://Scripts/save_manager.gd"
-UpNextGlobal="*res://Scripts/up_next_global.gd"
+UserSettings="*res://Scripts/user_settings.gd"
 
 [display]
 
-window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [input]
 

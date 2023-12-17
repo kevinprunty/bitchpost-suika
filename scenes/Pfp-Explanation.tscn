@@ -1,0 +1,127 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0dl817w0p338"]
+
+[ext_resource type="Texture2D" uid="uid://blhyofcypcujr" path="res://sprites/fruits/circles/mac.png" id="1_760mt"]
+[ext_resource type="Texture2D" uid="uid://gl6idtlrlts1" path="res://sprites/fruits/circles/TOASTER.png" id="2_ajbue"]
+[ext_resource type="Texture2D" uid="uid://cbb5tx4eb6ai0" path="res://sprites/fruits/circles/feature.png" id="2_domrj"]
+[ext_resource type="Texture2D" uid="uid://ctfollchk4wb6" path="res://sprites/fruits/circles/chim.png" id="3_wamow"]
+[ext_resource type="Texture2D" uid="uid://bl2o4t3g8uyy4" path="res://sprites/fruits/circles/duckaccino.png" id="4_g0jm5"]
+[ext_resource type="Texture2D" uid="uid://ck4ckaojt0ghg" path="res://sprites/fruits/circles/salami.png" id="5_lj3ii"]
+[ext_resource type="Texture2D" uid="uid://dkpvppq451o5e" path="res://sprites/fruits/circles/list.png" id="7_h6wr6"]
+[ext_resource type="Texture2D" uid="uid://bgyyc2pp84ky4" path="res://sprites/fruits/circles/wormdick.png" id="7_idvcn"]
+[ext_resource type="Texture2D" uid="uid://c2hbbsso3encn" path="res://sprites/fruits/circles/gilgermage.png" id="8_haa8g"]
+[ext_resource type="Texture2D" uid="uid://d3qj6h24k30lo" path="res://sprites/fruits/circles/blue.png" id="10_y6vdu"]
+[ext_resource type="Texture2D" uid="uid://wl1d6uaa5ks3" path="res://sprites/fruits/circles/simple.png" id="11_74xq2"]
+[ext_resource type="Script" path="res://Scripts/close button.gd" id="12_la4f8"]
+
+[node name="WHO??" type="Control"]
+z_index = 1
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -310.0
+offset_right = 561.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0901961, 0.0823529, 0.0745098, 1)
+
+[node name="ItemList" type="ItemList" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.231523
+anchor_top = 0.33441
+anchor_right = 0.795191
+anchor_bottom = 0.825525
+offset_left = -205.0
+offset_right = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/guide_color = Color(0, 0, 0, 1)
+allow_search = false
+item_count = 11
+max_columns = 6
+same_column_width = true
+icon_mode = 0
+fixed_icon_size = Vector2i(245, 261)
+item_0/text = "Mac"
+item_0/icon = ExtResource("1_760mt")
+item_1/text = "Itsafeature"
+item_1/icon = ExtResource("2_domrj")
+item_2/text = "Achim"
+item_2/icon = ExtResource("3_wamow")
+item_3/text = "Duckaccino"
+item_3/icon = ExtResource("4_g0jm5")
+item_4/text = "Salami"
+item_4/icon = ExtResource("5_lj3ii")
+item_5/text = "List Node"
+item_5/icon = ExtResource("7_h6wr6")
+item_6/text = "Worm Dick"
+item_6/icon = ExtResource("7_idvcn")
+item_7/text = "Gilbert"
+item_7/icon = ExtResource("8_haa8g")
+item_8/text = "Toaster"
+item_8/icon = ExtResource("2_ajbue")
+item_9/text = "Blue Aura"
+item_9/icon = ExtResource("10_y6vdu")
+item_10/text = "SimpleFlips"
+item_10/icon = ExtResource("11_74xq2")
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 24.0
+offset_right = 1070.0
+offset_bottom = 169.0
+theme_type_variation = &"HeaderLarge"
+theme_override_font_sizes/font_size = 37
+text = "Who is this?
+Click a pfp for a short bio on that user"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -417.5
+offset_top = 29.5
+offset_right = 420.5
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 17
+text = "(screen is unfinished, expect bugs and/or missing and incomplete bios)
+(atm ONLY expect missing bios, i havent made the bio screens yet.)
+(also, expect spoilers) (duh)"
+horizontal_alignment = 1
+
+[node name="close button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.934996
+anchor_right = 1.0
+anchor_bottom = 0.106624
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "X"
+flat = true
+icon_alignment = 1
+script = ExtResource("12_la4f8")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ColorRect/close button" to="ColorRect/close button" method="_on_pressed"]

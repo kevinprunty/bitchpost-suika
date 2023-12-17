@@ -1,0 +1,79 @@
+[gd_scene load_steps=3 format=3 uid="uid://dimgct67hwfni"]
+
+[ext_resource type="Script" path="res://Scripts/three_combine_button.gd" id="1_25s3d"]
+[ext_resource type="Script" path="res://Scripts/close button.gd" id="1_u625u"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="options" type="Label" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.351258
+anchor_top = 0.0645161
+anchor_right = 0.648742
+anchor_bottom = 0.170507
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Options Menu"
+horizontal_alignment = 1
+
+[node name="trippleCombine" type="Node" parent="background"]
+
+[node name="OptionButton" type="OptionButton" parent="background/trippleCombine"]
+anchors_preset = -1
+anchor_left = 0.525174
+anchor_top = 0.268519
+anchor_right = 0.713542
+anchor_bottom = 0.337963
+item_count = 2
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "Skip a Tier"
+popup/item_0/id = 1
+popup/item_1/text = "Classic Behavior"
+popup/item_1/id = 2
+script = ExtResource("1_25s3d")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="background/trippleCombine"]
+anchors_preset = -1
+anchor_left = 0.248264
+anchor_top = 0.268519
+anchor_right = 0.475695
+anchor_bottom = 0.325617
+offset_top = 3.0
+offset_bottom = 3.0
+theme_override_font_sizes/font_size = 27
+text = "On tripple combine:"
+metadata/_edit_use_anchors_ = true
+
+[node name="back to main" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 605.0
+offset_top = 556.0
+offset_right = 803.0
+offset_bottom = 610.0
+theme_override_font_sizes/font_size = 23
+text = "return to menu"
+script = ExtResource("1_u625u")
+
+[node name="set all default" type="Button" parent="background"]
+offset_left = 346.0
+offset_top = 556.0
+offset_right = 545.0
+offset_bottom = 610.0
+pivot_offset = Vector2(199, 0)
+theme_override_font_sizes/font_size = 23
+text = "reset to default"
+
+[connection signal="item_selected" from="background/trippleCombine/OptionButton" to="background/trippleCombine/OptionButton" method="_on_item_selected"]
+[connection signal="pressed" from="background/back to main" to="background/back to main" method="_on_pressed"]

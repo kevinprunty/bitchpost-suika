@@ -39,9 +39,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_strawberry()
 		if highest_fruit_seen == 1:
 			highest_fruit_seen += 1
+	
+	if cherry_pos_array.size() >= 2:
+		var pos_1 = cherry_pos_array.pop_front()
+		var pos_2 = cherry_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		cherry_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = grape.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
 			hider.unhide_strawberry()
+			hider.unhide_grape()
+			if highest_fruit_seen == 1:
+				highest_fruit_seen += 1
+		if UserSettings.tripple_combine == 2:
+			var instance = strawberry.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_strawberry()
+			if highest_fruit_seen == 1:
+				highest_fruit_seen += 1
 	
 	if strawberry_pos_array.size() == 2:
 		var pos_1 = strawberry_pos_array.pop_front()
@@ -51,9 +74,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_grape()
 		if highest_fruit_seen == 2:
 			highest_fruit_seen += 1
+	
+	if strawberry_pos_array.size() >= 2:
+		var pos_1 = strawberry_pos_array.pop_front()
+		var pos_2 = strawberry_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		strawberry_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = tangerine.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
 			hider.unhide_grape()
+			hider.unhide_tangerine()
+			if highest_fruit_seen == 2:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = grape.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_grape()
+			if highest_fruit_seen == 2:
+				highest_fruit_seen += 1
 	
 	if grape_pos_array.size() == 2:
 		var pos_1 = grape_pos_array.pop_front()
@@ -63,9 +109,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_tangerine()
 		if highest_fruit_seen == 3:
 			highest_fruit_seen += 1
+	
+	if grape_pos_array.size() >= 2:
+		var pos_1 = grape_pos_array.pop_front()
+		var pos_2 = grape_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		grape_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = orange.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
 			hider.unhide_tangerine()
+			hider.unhide_orange()
+			if highest_fruit_seen == 3:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = tangerine.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_tangerine()
+			if highest_fruit_seen == 3:
+				highest_fruit_seen += 1
 	
 	if tangerine_pos_array.size() == 2:
 		var pos_1 = tangerine_pos_array.pop_front()
@@ -75,9 +144,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_orange()
 		if highest_fruit_seen == 4:
 			highest_fruit_seen += 1
+	
+	if tangerine_pos_array.size() >= 2:
+		var pos_1 = tangerine_pos_array.pop_front()
+		var pos_2 = tangerine_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		tangerine_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = apple.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
 			hider.unhide_orange()
+			hider.unhide_apple()
+			if highest_fruit_seen == 4:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = orange.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_orange()
+			if highest_fruit_seen == 4:
+				highest_fruit_seen += 1
 	
 	if orange_pos_array.size() == 2:
 		var pos_1 = orange_pos_array.pop_front()
@@ -87,9 +179,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_apple()
 		if highest_fruit_seen == 5:
 			highest_fruit_seen += 1
+	
+	if orange_pos_array.size() >= 2:
+		var pos_1 = orange_pos_array.pop_front()
+		var pos_2 = orange_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		orange_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = dekopan.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
 			hider.unhide_apple()
+			hider.unhide_dekopan()
+			if highest_fruit_seen == 5:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = apple.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_apple()
+			if highest_fruit_seen == 5:
+				highest_fruit_seen += 1
 	
 	if apple_pos_array.size() == 2:
 		var pos_1 = apple_pos_array.pop_front()
@@ -99,9 +214,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_dekopan()
 		if highest_fruit_seen == 6:
 			highest_fruit_seen += 1
+	
+	if apple_pos_array.size() >= 2:
+		var pos_1 = apple_pos_array.pop_front()
+		var pos_2 = apple_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		apple_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = peach.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_peach()
 			hider.unhide_dekopan()
+			if highest_fruit_seen == 6:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = dekopan.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_dekopan()
+			if highest_fruit_seen == 6:
+				highest_fruit_seen += 1
 	
 	if dekopan_pos_array.size() == 2:
 		var pos_1 = dekopan_pos_array.pop_front()
@@ -111,9 +249,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_peach()
 		if highest_fruit_seen == 7:
 			highest_fruit_seen += 1
+	
+	if dekopan_pos_array.size() >= 2:
+		var pos_1 = dekopan_pos_array.pop_front()
+		var pos_2 = dekopan_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		dekopan_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = pineapple.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
 			hider.unhide_peach()
+			hider.unhide_pineapple()
+			if highest_fruit_seen == 7:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = peach.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_peach()
+			if highest_fruit_seen == 7:
+				highest_fruit_seen += 1
 	
 	if peach_pos_array.size() == 2:
 		var pos_1 = peach_pos_array.pop_front()
@@ -123,9 +284,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_pineapple()
 		if highest_fruit_seen == 8:
 			highest_fruit_seen += 1
+	
+	if peach_pos_array.size() >= 2:
+		var pos_1 = peach_pos_array.pop_front()
+		var pos_2 = peach_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		peach_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = melon.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_melon()
 			hider.unhide_pineapple()
+			if highest_fruit_seen == 8:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = pineapple.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_pineapple()
+			if highest_fruit_seen == 8:
+				highest_fruit_seen += 1
 	
 	if pineapple_pos_array.size() == 2:
 		var pos_1 = pineapple_pos_array.pop_front()
@@ -135,9 +319,32 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_melon()
 		if highest_fruit_seen == 9:
 			highest_fruit_seen += 1
+	
+	if pineapple_pos_array.size() >= 2:
+		var pos_1 = pineapple_pos_array.pop_front()
+		var pos_2 = pineapple_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		pineapple_pos_array.clear()
+		if UserSettings.tripple_combine == 1:
+			var instance = watermelon.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
 			hider.unhide_melon()
+			hider.unhide_watermelon()
+			if highest_fruit_seen == 9:
+				highest_fruit_seen += 2
+		if UserSettings.tripple_combine == 2:
+			var instance = melon.instantiate()
+			instance.position.x = new_ball_spawn_pos.x
+			instance.position.y = new_ball_spawn_pos.y
+			add_child(instance)
+			hider.unhide_melon()
+			if highest_fruit_seen == 9:
+				highest_fruit_seen += 1
 	
 	if melon_pos_array.size() == 2:
 		var pos_1 = melon_pos_array.pop_front()
@@ -147,12 +354,28 @@ func _process(_delta):
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)
+		hider.unhide_watermelon()
 		if highest_fruit_seen == 10:
 			highest_fruit_seen += 1
-			hider.unhide_watermelon()
+	
+	if melon_pos_array.size() >= 2:
+		var pos_1 = melon_pos_array.pop_front()
+		var pos_2 = melon_pos_array.pop_front()
+		var new_ball_spawn_pos = (pos_1 + pos_2)/2
+		melon_pos_array.clear()
+		var instance = watermelon.instantiate()
+		instance.position.x = new_ball_spawn_pos.x
+		instance.position.y = new_ball_spawn_pos.y
+		add_child(instance)
+		hider.unhide_watermelon()
+		if highest_fruit_seen == 10:
+			highest_fruit_seen += 1
 	
 	if watermelon_pos_array.size() == 2:
 		score += 200
+	
+	if watermelon_pos_array.size() >= 2:
+		score += 1000
 
 func _unhandled_input(_event):
 	if Input.is_physical_key_pressed(KEY_Z):
