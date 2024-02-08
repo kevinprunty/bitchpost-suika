@@ -30,4 +30,5 @@ func _on_pressed():
 			get_node("/root/NewFruitManager").remove_child(n)
 			n.queue_free()
 		get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
-	
+	if solo == false:
+		NewFruitManager.score = 0
