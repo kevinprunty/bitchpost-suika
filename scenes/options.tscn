@@ -67,6 +67,7 @@ text = "return to menu"
 script = ExtResource("1_u625u")
 
 [node name="set all default" type="Button" parent="background"]
+layout_mode = 0
 offset_left = 346.0
 offset_top = 556.0
 offset_right = 545.0

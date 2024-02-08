@@ -27,8 +27,13 @@ var watermelon_pos_array: Array
 var highest_fruit_seen = 1
 var hider
 
+#singleplayer/multiplayer variable
+var singleplayer := true
+
 @export var score: int
 @export var high_score: int
+@export var over_menu_pos: Node2D
+
 
 func _process(_delta):
 	if cherry_pos_array.size() == 2:
@@ -378,11 +383,23 @@ func _process(_delta):
 		score += 1000
 
 func _unhandled_input(_event):
-	if Input.is_physical_key_pressed(KEY_Z):
-		var instance = win_menu.instantiate()
-		add_child(instance)
 	if Input.is_physical_key_pressed(KEY_X):
 		clear_arrays()
+
+func leave_menu():
+	var instance = win_menu.instantiate()
+	instance.position.x = over_menu_pos.position.x + 210
+	instance.position.y = over_menu_pos.position.y
+	add_child(instance)
+	if NewFruitManager.singleplayer == false:
+		var root_Game = $"../.."
+		root_Game.Send_Game_Over()
+
+func leave_menu_win():
+	var instance = win_menu.instantiate()
+	instance.position.x = over_menu_pos.position.x + 210
+	instance.position.y = over_menu_pos.position.y
+	add_child(instance)
 
 func clear_arrays():
 	cherry_pos_array.clear()
