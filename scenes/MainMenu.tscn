@@ -51,7 +51,7 @@ label_settings = SubResource("LabelSettings_8gwv6")
 horizontal_alignment = 1
 autowrap_mode = 3
 script = ExtResource("2_x2scc")
-splash_array = ["philosophically jumbled fruit salad", "test_string", "Try Minecraft!", "google, show me this guy's suikas", "Play with your friend! (singular)"]
+splash_array = ["philosophically jumbled fruit salad", "test_string", "Try Minecraft!", "Google, Show me this guy's suikas.", "Play with your friend! (singular)", "We Love Fusing Balls"]
 metadata/_edit_use_anchors_ = true
 
 [node name="version number" type="Label" parent="."]
