@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dimgct67hwfni"]
+
+[ext_resource type="PackedScene" uid="uid://dv6ehw72llbi5" path="res://scenes/Options/Settings_Tab_Container.tscn" id="1_eepua"]
+[ext_resource type="Script" path="res://Scripts/exit_button_options.gd" id="1_emc22"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 1153.0
+offset_bottom = 651.0
+color = Color(0.298039, 0.298039, 0.298039, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 651.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -48
+
+[node name="options" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Options Menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsTabContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_eepua")]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.44
+
+[node name="exit_button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 23
+text = "return to menu"
+script = ExtResource("1_emc22")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit_button" to="MarginContainer/VBoxContainer/exit_button" method="_on_pressed"]

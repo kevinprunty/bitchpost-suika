@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cu3tmluonk2lc"]
+
+[ext_resource type="Script" path="res://Scripts/three_combine_button.gd" id="1_pcfbx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mf0fc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hwml"]
+
+[node name="Tripple Combine" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pcfbx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.664063
+anchor_bottom = 0.0555556
+theme_override_constants/separation = 64
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="name_Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Tripple Combine Behavior"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mf0fc")
+
+[node name="CheckButton" type="CheckButton" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+theme_override_styles/separator = SubResource("StyleBoxEmpty_6hwml")
+
+[node name="state_label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 27
+text = "Skip a Tier"
+
+[connection signal="toggled" from="HBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

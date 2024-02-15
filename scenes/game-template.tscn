@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://4jdf2eyhqwhc"]
+[gd_scene load_steps=30 format=3 uid="uid://4jdf2eyhqwhc"]
 
 [ext_resource type="Script" path="res://Scripts/GameOverMultiplayerChecker.gd" id="1_mt63j"]
 [ext_resource type="Texture2D" uid="uid://dsrht624ed6ex" path="res://sprites/game board.png" id="1_uma5d"]
+[ext_resource type="Script" path="res://Scripts/user_settings.gd" id="2_c1s76"]
 [ext_resource type="Script" path="res://Scripts/death zone.gd" id="2_wt2su"]
 [ext_resource type="Script" path="res://Scripts/mover.gd" id="3_bvfv7"]
 [ext_resource type="Resource" uid="uid://d2vupjuonvf0u" path="res://Resources/P1_controls.tres" id="4_lderi"]
@@ -44,6 +45,7 @@ script = ExtResource("1_mt63j")
 
 [node name="Board" type="Node2D" parent="."]
 position = Vector2(182, 33)
+script = ExtResource("2_c1s76")
 
 [node name="Game Board Sprite" type="Sprite2D" parent="Board"]
 position = Vector2(393, 310)

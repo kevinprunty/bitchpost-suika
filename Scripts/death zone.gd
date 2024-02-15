@@ -7,6 +7,8 @@ extends Area2D
 func _unhandled_input(_event):
 	if Input.is_physical_key_pressed(KEY_M):
 		print(Spawner.can_die, get_node("."))
+		print(SettingsContainer.get_classic_3_combine_state())
+		print("nfm", NewFruitManager.three_combine)
 
 func _process(_delta):
 	if Spawner.can_die == true:
