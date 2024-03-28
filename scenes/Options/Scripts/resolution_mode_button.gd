@@ -2,6 +2,7 @@ extends Control
 
 @onready var option_button = $HBoxContainer/OptionButton
 
+
 const RESOLUTION_DICTIONARY : Dictionary = {
 	"1152x648" : Vector2i(1152, 648),
 	"1280x720" : Vector2i(1280, 720),

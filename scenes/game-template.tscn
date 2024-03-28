@@ -5,9 +5,9 @@
 [ext_resource type="Script" path="res://Scripts/user_settings.gd" id="2_c1s76"]
 [ext_resource type="Script" path="res://Scripts/death zone.gd" id="2_wt2su"]
 [ext_resource type="Script" path="res://Scripts/mover.gd" id="3_bvfv7"]
-[ext_resource type="Resource" uid="uid://d2vupjuonvf0u" path="res://Resources/P1_controls.tres" id="4_lderi"]
 [ext_resource type="Script" path="res://Scripts/TestSpawner.gd" id="4_mg4lv"]
 [ext_resource type="Texture2D" uid="uid://blhyofcypcujr" path="res://sprites/fruits/circles/mac.png" id="5_f44yp"]
+[ext_resource type="Resource" uid="uid://d2vupjuonvf0u" path="res://Resources/P1_controls.tres" id="6_fssth"]
 [ext_resource type="Texture2D" uid="uid://cbb5tx4eb6ai0" path="res://sprites/fruits/circles/feature.png" id="6_pqrlx"]
 [ext_resource type="Texture2D" uid="uid://ck4ckaojt0ghg" path="res://sprites/fruits/circles/salami.png" id="7_q3mh4"]
 [ext_resource type="Texture2D" uid="uid://ctfollchk4wb6" path="res://sprites/fruits/circles/chim.png" id="8_k6rbq"]
@@ -94,7 +94,7 @@ position = Vector2(0, -125)
 
 [node name="mover_controller" type="CharacterBody2D" parent="Board/move and spawn/collider"]
 script = ExtResource("3_bvfv7")
-controls = ExtResource("4_lderi")
+controls = ExtResource("6_fssth")
 
 [node name="TestSpawner" type="Node" parent="Board/move and spawn/collider/mover_controller"]
 script = ExtResource("4_mg4lv")

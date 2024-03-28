@@ -1,6 +1,6 @@
 extends Node
 
-@onready var DEFAULT_SETTINGS : DefaultSettingsResource = preload("res://Resources/Settings/Default_Settings.tres")
+@onready var DEFAULT_SETTINGS : DefaultSettingsResource = preload("res://Resources/Settings/DEFAULT_SETTINGS.tres")
 
 var window_mode_index : int = 0
 var resolution_index : int = 0
@@ -82,7 +82,6 @@ func on_classic_3_combine_toggled(value : bool) -> void:
 	print(classic_3_combine_state)
 
 func on_settings_data_loaded(data : Dictionary) -> void:
-	print("happened")
 	loaded_data = data
 	on_window_mode_selected(loaded_data.window_mode_index)
 	on_resolution_selected(loaded_data.resolution_index)

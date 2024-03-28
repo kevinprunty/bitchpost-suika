@@ -1,5 +1,6 @@
 extends Node
 
+
 #signals
 
 signal on_classic_3_combine_toggled(value : bool)
@@ -22,6 +23,7 @@ signal load_settings_data(settings_dict : Dictionary)
 
 func emit_load_settings_data(settings_dict : Dictionary) -> void:
 	load_settings_data.emit(settings_dict)
+	SettingsContainer.on_settings_data_loaded(settings_dict)
 
 func emit_set_settings_dictionary(settings_dict : Dictionary) -> void:
 	set_settings_dictionary.emit(settings_dict)

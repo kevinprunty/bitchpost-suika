@@ -3,6 +3,7 @@ extends Control
 @onready var check_button = $HBoxContainer/CheckButton as CheckButton
 @onready var state_label = $HBoxContainer/state_label as Label
 
+
 func _ready():
 	check_button.toggled.connect(on_classic_combine_toggled)
 

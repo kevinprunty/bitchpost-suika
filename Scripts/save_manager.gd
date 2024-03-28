@@ -40,7 +40,7 @@ func _unhandled_input(_event):
 
 func load_settings_data() -> void:
 	if not FileAccess.file_exists(SETTINGS_SAVE_PATH):
-		print("bruh")
+		#print("settings file does not exsist")
 		return
 	var save_settings_data_file = FileAccess.open(SETTINGS_SAVE_PATH, FileAccess.READ)
 	var loaded_data : Dictionary = {}
@@ -52,3 +52,4 @@ func load_settings_data() -> void:
 		
 		loaded_data = json.get_data()
 	SettingsSignalBus.emit_load_settings_data(loaded_data)
+	#print_debug("loaded data emited as ", loaded_data)

@@ -142,7 +142,6 @@ text = "High Score: 0"
 script = ExtResource("5_tcicf")
 
 [node name="OptionsButton" type="Button" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.580729
@@ -157,6 +156,7 @@ script = ExtResource("6_fqd4w")
 metadata/_edit_use_anchors_ = true
 
 [node name="OptionsButton2" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.580729

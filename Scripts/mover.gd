@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var move_speed = 500
 @onready var Spawner = get_node("./TestSpawner")
-@export var controls: Resource = null
+@export var controls : Resource = null
 @onready var ballsman = $"../../../Ball_Manager"
 
 func _physics_process(_delta):
