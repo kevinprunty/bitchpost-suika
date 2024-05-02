@@ -6,7 +6,14 @@ extends Control
 
 func _ready():
 	check_button.toggled.connect(on_classic_combine_toggled)
-
+	var state = SettingsContainer.get_classic_3_combine_state()
+	if state != true:
+		state_label.text = "Skip a Tier"
+		check_button.button_pressed = false
+	else:
+		state_label.text = "Classic"
+		check_button.button_pressed = true
+		
 func load_data() -> void:
 	on_classic_combine_toggled(SettingsContainer.get_classic_3_combine_state())
 
@@ -15,7 +22,6 @@ func set_label_text(button_pressed : bool) -> void:
 		state_label.text = "Skip a Tier"
 	else:
 		state_label.text = "Classic"
-	
 
 func on_classic_combine_toggled(button_pressed : bool) -> void:
 	set_label_text(button_pressed)

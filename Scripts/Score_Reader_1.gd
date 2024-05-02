@@ -5,8 +5,8 @@ extends Node
 var score
 
 func _process(_delta):
-	score = var_to_str(BallManager.score)
-	Score_Label.text = score
+	score = (BallManager.score)
+	Score_Label.text = str(score)
 
 func _unhandled_input(_event):
 	if Input.is_physical_key_pressed(KEY_E):

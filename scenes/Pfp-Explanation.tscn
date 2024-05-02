@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://blhyofcypcujr" path="res://sprites/fruits/circles/mac.png" id="1_760mt"]
 [ext_resource type="Texture2D" uid="uid://gl6idtlrlts1" path="res://sprites/fruits/circles/TOASTER.png" id="2_ajbue"]
-[ext_resource type="Texture2D" uid="uid://cbb5tx4eb6ai0" path="res://sprites/fruits/circles/feature.png" id="2_domrj"]
+[ext_resource type="Texture2D" uid="uid://cmbutay2mpqcb" path="res://sprites/fruits/circles/feature.png" id="2_domrj"]
 [ext_resource type="Texture2D" uid="uid://ctfollchk4wb6" path="res://sprites/fruits/circles/chim.png" id="3_wamow"]
 [ext_resource type="Texture2D" uid="uid://bl2o4t3g8uyy4" path="res://sprites/fruits/circles/duckaccino.png" id="4_g0jm5"]
 [ext_resource type="Texture2D" uid="uid://ck4ckaojt0ghg" path="res://sprites/fruits/circles/salami.png" id="5_lj3ii"]
@@ -104,10 +104,9 @@ offset_right = 420.5
 offset_bottom = 107.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 17
-text = "(screen is unfinished, expect bugs and/or missing and incomplete bios)
-(atm ONLY expect missing bios, i havent made the bio screens yet.)
-(also, expect spoilers) (duh)"
+theme_override_font_sizes/font_size = 22
+text = "(screen is unfinished, expect missing bios)
+also spoilers, duh"
 horizontal_alignment = 1
 
 [node name="close button" type="Button" parent="ColorRect"]

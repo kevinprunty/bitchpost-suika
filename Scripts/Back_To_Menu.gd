@@ -1,5 +1,6 @@
 extends Button
 
+@export var win_quote_array = []
 @export var solo:= true
 var score = NewFruitManager.score
 @export var Score_Label: Label
@@ -9,8 +10,13 @@ func _ready():
 	Score_Label.text = str("Score: " + score_str)
 	if NewFruitManager.singleplayer == false:
 		solo = false
+		randomize()
+		var random_win_quote = win_quote_array[randi() % win_quote_array.size()]
+		Score_Label.text = (random_win_quote)
+		if random_win_quote == "Scorn: 985":
+			$"../../AudioStreamPlayer".play()
 	if solo == false:
-		$"../Score".hide()
+		$"../Score".show()
 
 func _on_pressed():
 	if solo == true:

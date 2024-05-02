@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://btweky0fi4c4n"]
+[gd_scene load_steps=3 format=3 uid="uid://btweky0fi4c4n"]
 
 [ext_resource type="Script" path="res://Scripts/Back_To_Menu.gd" id="1_gtlr8"]
+[ext_resource type="AudioStream" uid="uid://cbidhemnlumls" path="res://Music/jerma-scorn.mp3" id="2_bviv2"]
 
 [node name="WinMenu" type="Control"]
 z_index = 5
@@ -43,18 +44,26 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Main Menu"
 script = ExtResource("1_gtlr8")
+win_quote_array = ["Probably The Best You've Ever Done!", "Score: not shit lmao", "Score: 0,000,000", "Score: at least two im sure", "Score: 0. ouch :(", "Scorn: 985", "Probably The WORST You'll EVER Do!", "Cheater!!!!", "No Johns", "No Jerrys Either", "This User BLOWS!", "This User ROCKS!", "You Rock!", "score isnt seperated, would need to re-write that to fix it. and i dont want to.", "Riveting Gameplay.", "Suika Andy", "Bro Competed Against His Friend", "Suikapilled Fruitmaxxer"]
 Score_Label = NodePath("../Score")
 
 [node name="Score" type="Label" parent="ColorRect"]
-layout_mode = 0
-anchor_left = 0.251572
-anchor_top = 0.346032
-anchor_right = 0.754717
-anchor_bottom = 0.473016
-offset_right = -6.10352e-05
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0585366
+anchor_top = 0.275261
+anchor_right = 0.946341
+anchor_bottom = 0.665505
 theme_override_font_sizes/font_size = 24
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_bviv2")
+volume_db = -4.379
+bus = &"Sfx"
 
 [connection signal="pressed" from="ColorRect/Button" to="ColorRect/Button" method="_on_pressed"]

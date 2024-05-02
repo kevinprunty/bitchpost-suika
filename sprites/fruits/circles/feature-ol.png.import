@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmbutay2mpqcb"
-path="res://.godot/imported/feature.png-de37eb42d06a4be5cc02438765bba15d.ctex"
+uid="uid://cbb5tx4eb6ai0"
+path="res://.godot/imported/feature-ol.png-79b10ef03ede38be73d7a80a3376cc00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/fruits/circles/feature.png"
-dest_files=["res://.godot/imported/feature.png-de37eb42d06a4be5cc02438765bba15d.ctex"]
+source_file="res://sprites/fruits/circles/feature-ol.png"
+dest_files=["res://.godot/imported/feature-ol.png-79b10ef03ede38be73d7a80a3376cc00.ctex"]
 
 [params]
 
