@@ -20,13 +20,34 @@ func _ready():
 func _process(_delta):
 	spawn_location = get_node(spawn_location_path).global_position
 
-func _unhandled_input(_event):
-	if Input.is_action_pressed("drop"):
-		if can_spawn == true:
-			can_die = false
-			if first_spawn == true:
-				first_spawn = false
-				var instance = cherry.instantiate()
+func drop_ball():
+	if can_spawn == true:
+		can_die = false
+		if first_spawn == true:
+			first_spawn = false
+			var instance = cherry.instantiate()
+			instance.position.x = spawn_location.x
+			instance.position.y = spawn_location.y + 130
+			add_child(instance)
+			can_spawn = false
+			fruit_pick = rng.randfn(1.5,4)
+			await get_tree().create_timer(.5).timeout
+			can_spawn = true
+			can_die = true
+			return
+		if fruit_pick > 9:
+			var instance = tang.instantiate()
+			instance.position.x = spawn_location.x
+			instance.position.y = spawn_location.y + 130
+			add_child(instance)
+			can_spawn = false
+			fruit_pick = rng.randfn(1.5,4)
+			await get_tree().create_timer(.7).timeout
+			can_spawn = true
+			can_die = true
+		else:
+			if fruit_pick > 7:
+				var instance = grape.instantiate()
 				instance.position.x = spawn_location.x
 				instance.position.y = spawn_location.y + 130
 				add_child(instance)
@@ -35,20 +56,9 @@ func _unhandled_input(_event):
 				await get_tree().create_timer(.5).timeout
 				can_spawn = true
 				can_die = true
-				return
-			if fruit_pick > 9:
-				var instance = tang.instantiate()
-				instance.position.x = spawn_location.x
-				instance.position.y = spawn_location.y + 130
-				add_child(instance)
-				can_spawn = false
-				fruit_pick = rng.randfn(1.5,4)
-				await get_tree().create_timer(.7).timeout
-				can_spawn = true
-				can_die = true
 			else:
-				if fruit_pick > 7:
-					var instance = grape.instantiate()
+				if fruit_pick > 3:
+					var instance = strawberry.instantiate()
 					instance.position.x = spawn_location.x
 					instance.position.y = spawn_location.y + 130
 					add_child(instance)
@@ -58,23 +68,12 @@ func _unhandled_input(_event):
 					can_spawn = true
 					can_die = true
 				else:
-					if fruit_pick > 3:
-						var instance = strawberry.instantiate()
-						instance.position.x = spawn_location.x
-						instance.position.y = spawn_location.y + 130
-						add_child(instance)
-						can_spawn = false
-						fruit_pick = rng.randfn(1.5,4)
-						await get_tree().create_timer(.5).timeout
-						can_spawn = true
-						can_die = true
-					else:
-						var instance = cherry.instantiate()
-						instance.position.x = spawn_location.x
-						instance.position.y = spawn_location.y + 130
-						add_child(instance)
-						can_spawn = false
-						fruit_pick = rng.randfn(1.5,4)
-						await get_tree().create_timer(.5).timeout
-						can_spawn = true
-						can_die = true
+					var instance = cherry.instantiate()
+					instance.position.x = spawn_location.x
+					instance.position.y = spawn_location.y + 130
+					add_child(instance)
+					can_spawn = false
+					fruit_pick = rng.randfn(1.5,4)
+					await get_tree().create_timer(.5).timeout
+					can_spawn = true
+					can_die = true

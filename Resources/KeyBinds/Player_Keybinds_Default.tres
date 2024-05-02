@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="PlayerKeybindsResource" load_steps=10 format=3 uid="uid://cbi213q1xmnms"]
+
+[ext_resource type="Script" path="res://Resources/KeyBinds/PlayerKeybindResource.gd" id="1_lfsev"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_hifit"]
+device = -1
+physical_keycode = 32
+unicode = 32
+
+[sub_resource type="InputEventKey" id="InputEventKey_5gkvp"]
+device = -1
+physical_keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_smin3"]
+device = -1
+physical_keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_fimlt"]
+device = -1
+physical_keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_yj544"]
+device = -1
+physical_keycode = 4194325
+
+[sub_resource type="InputEventKey" id="InputEventKey_vxmjq"]
+device = -1
+physical_keycode = 4194319
+
+[sub_resource type="InputEventKey" id="InputEventKey_javpr"]
+device = -1
+physical_keycode = 4194308
+
+[sub_resource type="InputEventKey" id="InputEventKey_5ngf6"]
+device = -1
+physical_keycode = 4194321
+
+[resource]
+script = ExtResource("1_lfsev")
+DEFAULT_P1_LEFT_KEY = SubResource("InputEventKey_5gkvp")
+DEFAULT_P1_RIGHT_KEY = SubResource("InputEventKey_fimlt")
+DEFAULT_P1_DROP_KEY = SubResource("InputEventKey_hifit")
+DEFAULT_P1_QUIT_KEY = SubResource("InputEventKey_smin3")
+DEFAULT_P2_LEFT_KEY = SubResource("InputEventKey_vxmjq")
+DEFAULT_P2_RIGHT_KEY = SubResource("InputEventKey_5ngf6")
+DEFAULT_P2_DROP_KEY = SubResource("InputEventKey_yj544")
+DEFAULT_P2_QUIT_KEY = SubResource("InputEventKey_javpr")

@@ -1,12 +1,133 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd4yjgsvfnvrp"]
+[gd_scene load_steps=17 format=3 uid="uid://bd4yjgsvfnvrp"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="1_8yp6e"]
 [ext_resource type="Script" path="res://Scripts/MainMenuHide.gd" id="1_vx2ul"]
 [ext_resource type="Script" path="res://Scripts/Load_data.gd" id="2_axqn0"]
+[ext_resource type="Script" path="res://Scripts/SplashText.gd" id="2_x2scc"]
 [ext_resource type="Script" path="res://Scripts/save_data.gd" id="3_7qsol"]
+[ext_resource type="Script" path="res://Scripts/MultiMenuButton.gd" id="3_fn006"]
 [ext_resource type="Script" path="res://Scripts/mm_score.gd" id="5_tcicf"]
 [ext_resource type="Script" path="res://Scripts/Options_Menu.gd" id="6_fqd4w"]
 [ext_resource type="Script" path="res://Scripts/Who_is_that.gd" id="6_pdpyb"]
+[ext_resource type="AudioStream" uid="uid://cmpkv8hbeih8y" path="res://Music/Cipher2.mp3" id="10_ec5og"]
+[ext_resource type="Script" path="res://Scripts/fps_counter.gd" id="10_pc44f"]
+[ext_resource type="PackedScene" uid="uid://dimgct67hwfni" path="res://scenes/Options/options.tscn" id="11_luf5t"]
+
+[sub_resource type="Animation" id="Animation_3x3wy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.980392, 0.972549, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_v4btl"]
+resource_name = "Splash-Default"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_138cm"]
+resource_name = "Splash-Rainbow"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0.980392, 0.972549, 0, 1), Color(0.34902, 1, 0.494118, 1), Color(0.152941, 0.921569, 0.784314, 1), Color(0.478431, 0.705882, 1, 1), Color(0.862745, 0.615686, 0.976471, 1), Color(0.984314, 0.72549, 0.803922, 1), Color(1, 0.0745098, 0.14902, 1), Color(1, 0.709804, 0.603922, 1), Color(0.980392, 0.972549, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ayu58"]
+_data = {
+"RESET": SubResource("Animation_3x3wy"),
+"Splash-Default": SubResource("Animation_v4btl"),
+"Splash-Rainbow": SubResource("Animation_138cm")
+}
 
 [node name="MainMenu" type="Control" groups=["menu"]]
 layout_mode = 3
@@ -30,12 +151,33 @@ offset_bottom = 152.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 53
 text = "Lil-þitch-Suika"
+
+[node name="Label" type="Label" parent="title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.285319
+anchor_top = 0.740385
+anchor_right = 1.27147
+anchor_bottom = 1.25962
+pivot_offset = Vector2(280.715, 26.66)
+theme_override_colors/font_color = Color(0.980392, 0.972549, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "this is a bug. report this. like, actually."
+horizontal_alignment = 1
+script = ExtResource("2_x2scc")
+splash_array = ["Google, Show me this guy's suikas", "We Love Fusing Balls", "Try Minecraft!", "Philosophically jumbled fruit salad", "test_string", "Play with your friend! (singular)"]
 metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="title/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_ayu58")
+}
+autoplay = "Splash-Default"
 
 [node name="version number" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.00955
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -43,52 +185,68 @@ offset_left = -91.0
 offset_top = -39.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "v0.0.5"
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/font_size = 25
+text = "v0.0.6
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.498264
-anchor_top = 0.307099
-anchor_right = 0.498264
-anchor_bottom = 0.307099
-offset_left = -93.0
-offset_top = -47.0
-offset_right = 94.0
-offset_bottom = 48.0
+anchor_left = 0.255209
+anchor_top = 0.300926
+anchor_right = 0.417535
+anchor_bottom = 0.447531
+offset_top = -1.52588e-05
+offset_right = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 39
 text = "Play"
 script = ExtResource("1_8yp6e")
+metadata/_edit_use_anchors_ = true
+
+[node name="Play2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.580729
+anchor_top = 0.300926
+anchor_right = 0.743056
+anchor_bottom = 0.447531
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 29
+text = "Multiplayer
+(local only)"
+script = ExtResource("3_fn006")
+metadata/_edit_use_anchors_ = true
 
 [node name="Load" type="Button" parent="."]
-offset_left = 668.0
-offset_top = 284.0
-offset_right = 855.0
-offset_bottom = 379.0
+layout_mode = 0
+anchor_left = 0.58073
+anchor_top = 0.50463
+anchor_right = 0.743056
+anchor_bottom = 0.651235
 theme_override_font_sizes/font_size = 39
 text = "Load"
 script = ExtResource("2_axqn0")
+metadata/_edit_use_anchors_ = true
 
 [node name="Save" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.335069
-anchor_top = 0.453704
-anchor_right = 0.335069
-anchor_bottom = 0.453704
-offset_left = -93.0
-offset_top = -10.0
-offset_right = 94.0
-offset_bottom = 85.0
+anchor_left = 0.255208
+anchor_top = 0.50463
+anchor_right = 0.417535
+anchor_bottom = 0.651235
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 39
 text = "Save"
 script = ExtResource("3_7qsol")
+metadata/_edit_use_anchors_ = true
 
 [node name="high score" type="Label" parent="."]
 layout_mode = 1
@@ -103,37 +261,88 @@ theme_override_font_sizes/font_size = 24
 text = "High Score: 0"
 script = ExtResource("5_tcicf")
 
-[node name="Options" type="Button" parent="."]
+[node name="OptionsButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.579861
-anchor_top = 0.641975
-anchor_right = 0.742
-anchor_bottom = 0.789
-offset_top = 3.05176e-05
-offset_right = 0.215942
-offset_bottom = -0.272034
+anchor_left = 0.580729
+anchor_top = 0.708333
+anchor_right = 0.743056
+anchor_bottom = 0.854938
+offset_top = -3.05176e-05
 theme_override_font_sizes/font_size = 30
 action_mode = 0
 text = "Options"
 script = ExtResource("6_fqd4w")
 metadata/_edit_use_anchors_ = true
 
+[node name="OptionsButton2" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.580729
+anchor_top = 0.708333
+anchor_right = 0.743056
+anchor_bottom = 0.854938
+offset_top = -3.05176e-05
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Options
+(Disabled)"
+metadata/_edit_use_anchors_ = true
+
 [node name="Who" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25434
-anchor_top = 0.641975
-anchor_right = 0.416667
-anchor_bottom = 0.78858
-offset_top = 3.05176e-05
-offset_right = 1.0
+anchor_left = 0.255208
+anchor_top = 0.708333
+anchor_right = 0.418404
+anchor_bottom = 0.854938
+offset_top = -3.05176e-05
 theme_override_font_sizes/font_size = 20
 text = "\"who was that?\""
 script = ExtResource("6_pdpyb")
+metadata/_edit_use_anchors_ = true
+
+[node name="copywrite" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.417535
+anchor_top = 0.91821
+anchor_right = 0.581597
+anchor_bottom = 1.0
+offset_right = 0.000671387
+text = "Music By Kevin MacLeod
+Liscened under cc 3.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="fps" type="Label" parent="copywrite"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.50265
+anchor_top = -11.0755
+anchor_right = -1.50265
+anchor_bottom = -10.151
+offset_right = 0.000701904
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("10_pc44f")
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ec5og")
+volume_db = -8.78
+autoplay = true
+bus = &"Music"
+
+[node name="Options" parent="." instance=ExtResource("11_luf5t")]
+visible = false
 
 [connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Play2" to="Play2" method="_on_pressed"]
 [connection signal="pressed" from="Load" to="Load" method="_on_pressed"]
 [connection signal="pressed" from="Save" to="Save" method="_on_pressed"]
-[connection signal="pressed" from="Options" to="Options" method="_on_pressed"]
+[connection signal="pressed" from="OptionsButton" to="OptionsButton" method="_on_pressed"]
 [connection signal="pressed" from="Who" to="Who" method="_on_pressed"]

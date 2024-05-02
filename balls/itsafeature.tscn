@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://u5ef2saqnxh3"]
 
 [ext_resource type="Script" path="res://balls/ball_types/strawberry_check.gd" id="1_2dhoi"]
-[ext_resource type="Texture2D" uid="uid://cbb5tx4eb6ai0" path="res://sprites/fruits/circles/feature.png" id="2_hd7b1"]
+[ext_resource type="Texture2D" uid="uid://cmbutay2mpqcb" path="res://sprites/fruits/circles/feature.png" id="2_hd7b1"]
 [ext_resource type="Script" path="res://balls/method_scripts/strawberry_method.gd" id="3_ndhse"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jj5wt"]

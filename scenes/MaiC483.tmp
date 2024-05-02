@@ -1,0 +1,198 @@
+[gd_scene load_steps=13 format=3 uid="uid://bd4yjgsvfnvrp"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenuButton.gd" id="1_8yp6e"]
+[ext_resource type="Script" path="res://Scripts/MainMenuHide.gd" id="1_vx2ul"]
+[ext_resource type="Script" path="res://Scripts/Load_data.gd" id="2_axqn0"]
+[ext_resource type="Script" path="res://Scripts/SplashText.gd" id="2_x2scc"]
+[ext_resource type="Script" path="res://Scripts/save_data.gd" id="3_7qsol"]
+[ext_resource type="Script" path="res://Scripts/MultiMenuButton.gd" id="3_fn006"]
+[ext_resource type="Script" path="res://Scripts/mm_score.gd" id="5_tcicf"]
+[ext_resource type="Script" path="res://Scripts/Options_Menu.gd" id="6_fqd4w"]
+[ext_resource type="Script" path="res://Scripts/Who_is_that.gd" id="6_pdpyb"]
+[ext_resource type="AudioStream" uid="uid://cmpkv8hbeih8y" path="res://Music/Cipher2.mp3" id="10_ec5og"]
+[ext_resource type="PackedScene" uid="uid://dimgct67hwfni" path="res://scenes/Options/options.tscn" id="11_luf5t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gwv6"]
+font_size = 25
+font_color = Color(1, 1, 0.0627451, 1)
+
+[node name="MainMenu" type="Control" groups=["menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_vx2ul")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.0
+offset_top = 48.0
+offset_right = 182.0
+offset_bottom = 152.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 53
+text = "Lil-þitch-Suika"
+
+[node name="splash" type="Label" parent="title"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.285319
+anchor_top = 0.730769
+anchor_right = 1.27147
+anchor_bottom = 1.09615
+theme_override_colors/font_color = Color(0.964706, 0.964706, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "this is a bug. report this. like, actually."
+label_settings = SubResource("LabelSettings_8gwv6")
+horizontal_alignment = 1
+autowrap_mode = 3
+script = ExtResource("2_x2scc")
+splash_array = ["philosophically jumbled fruit salad", "test_string", "Try Minecraft!", "Google, Show me this guy's suikas.", "Play with your friend! (singular)", "We Love Fusing Balls"]
+metadata/_edit_use_anchors_ = true
+
+[node name="version number" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -91.0
+offset_top = -39.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "v0.0.6"
+metadata/_edit_use_anchors_ = true
+
+[node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.255209
+anchor_top = 0.300926
+anchor_right = 0.417535
+anchor_bottom = 0.447531
+offset_top = -1.52588e-05
+offset_right = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 39
+text = "Play"
+script = ExtResource("1_8yp6e")
+metadata/_edit_use_anchors_ = true
+
+[node name="Play2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.580729
+anchor_top = 0.300926
+anchor_right = 0.743056
+anchor_bottom = 0.447531
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 29
+text = "Multiplayer
+(local only)"
+script = ExtResource("3_fn006")
+metadata/_edit_use_anchors_ = true
+
+[node name="Load" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.58073
+anchor_top = 0.50463
+anchor_right = 0.743056
+anchor_bottom = 0.651235
+theme_override_font_sizes/font_size = 39
+text = "Load"
+script = ExtResource("2_axqn0")
+metadata/_edit_use_anchors_ = true
+
+[node name="Save" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.255208
+anchor_top = 0.50463
+anchor_right = 0.417535
+anchor_bottom = 0.651235
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 39
+text = "Save"
+script = ExtResource("3_7qsol")
+metadata/_edit_use_anchors_ = true
+
+[node name="high score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -39.0
+offset_right = 162.0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "High Score: 0"
+script = ExtResource("5_tcicf")
+
+[node name="OptionsButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.580729
+anchor_top = 0.708333
+anchor_right = 0.743056
+anchor_bottom = 0.854938
+offset_top = -3.05176e-05
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Options"
+script = ExtResource("6_fqd4w")
+metadata/_edit_use_anchors_ = true
+
+[node name="Who" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.255208
+anchor_top = 0.708333
+anchor_right = 0.418404
+anchor_bottom = 0.854938
+offset_top = -3.05176e-05
+theme_override_font_sizes/font_size = 20
+text = "\"who was that?\""
+script = ExtResource("6_pdpyb")
+metadata/_edit_use_anchors_ = true
+
+[node name="copywrite" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.417535
+anchor_top = 0.91821
+anchor_right = 0.581597
+anchor_bottom = 1.0
+offset_right = 0.000671387
+text = "Music By Kevin MacLeod
+Liscened under cc 3.0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_ec5og")
+volume_db = -8.78
+autoplay = true
+bus = &"Music"
+
+[node name="Options" parent="." instance=ExtResource("11_luf5t")]
+
+[connection signal="pressed" from="Play" to="Play" method="_on_pressed"]
+[connection signal="pressed" from="Play2" to="Play2" method="_on_pressed"]
+[connection signal="pressed" from="Load" to="Load" method="_on_pressed"]
+[connection signal="pressed" from="Save" to="Save" method="_on_pressed"]
+[connection signal="pressed" from="OptionsButton" to="OptionsButton" method="_on_pressed"]
+[connection signal="pressed" from="Who" to="Who" method="_on_pressed"]
