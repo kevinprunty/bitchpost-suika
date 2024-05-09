@@ -1,6 +1,9 @@
 extends Node
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 #signals
 
 signal on_classic_3_combine_toggled(value : bool)
@@ -23,7 +26,10 @@ signal load_settings_data(settings_dict : Dictionary)
 
 func emit_load_settings_data(settings_dict : Dictionary) -> void:
 	load_settings_data.emit(settings_dict)
+<<<<<<< Updated upstream
 	SettingsContainer.on_settings_data_loaded(settings_dict)
+=======
+>>>>>>> Stashed changes
 
 func emit_set_settings_dictionary(settings_dict : Dictionary) -> void:
 	set_settings_dictionary.emit(settings_dict)
