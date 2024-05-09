@@ -10,7 +10,6 @@
 [ext_resource type="Resource" uid="uid://d2vupjuonvf0u" path="res://Resources/P1_controls.tres" id="6_fssth"]
 [ext_resource type="Texture2D" uid="uid://cmbutay2mpqcb" path="res://sprites/fruits/circles/feature.png" id="6_pqrlx"]
 [ext_resource type="Texture2D" uid="uid://ck4ckaojt0ghg" path="res://sprites/fruits/circles/salami.png" id="7_q3mh4"]
-[ext_resource type="Texture2D" uid="uid://ctfollchk4wb6" path="res://sprites/fruits/circles/chim.png" id="8_k6rbq"]
 [ext_resource type="Texture2D" uid="uid://dkpvppq451o5e" path="res://sprites/fruits/circles/list.png" id="9_jelgf"]
 [ext_resource type="Texture2D" uid="uid://bl2o4t3g8uyy4" path="res://sprites/fruits/circles/duckaccino.png" id="10_pewei"]
 [ext_resource type="Texture2D" uid="uid://bgyyc2pp84ky4" path="res://sprites/fruits/circles/wormdick.png" id="11_pw1ct"]
@@ -23,6 +22,7 @@
 [ext_resource type="Script" path="res://Scripts/order_hider.gd" id="18_mm5m2"]
 [ext_resource type="Texture2D" uid="uid://5edqiawuvx5g" path="res://sprites/fruits/circles/unknown.png" id="19_jhy8s"]
 [ext_resource type="Script" path="res://Scripts/up_next.gd" id="20_pjohb"]
+[ext_resource type="Texture2D" uid="uid://bngxihheymywt" path="res://sprites/fruits/circles/kittrz.png" id="24_3stmm"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wfch5"]
 
@@ -116,8 +116,8 @@ texture = SubResource("CanvasTexture_j75h1")
 position = Vector2(-182, -33)
 
 [node name="Mac" type="Sprite2D" parent="Board/balls_guide"]
-position = Vector2(935, 135)
-scale = Vector2(0.26, 0.26)
+position = Vector2(934, 135)
+scale = Vector2(0.164649, 0.164649)
 texture = ExtResource("5_f44yp")
 
 [node name="feature" type="Sprite2D" parent="Board/balls_guide"]
@@ -130,10 +130,10 @@ position = Vector2(935, 298.5)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("7_q3mh4")
 
-[node name="chim" type="Sprite2D" parent="Board/balls_guide"]
-position = Vector2(935, 217)
-scale = Vector2(0.257812, 0.257812)
-texture = ExtResource("8_k6rbq")
+[node name="kittrz" type="Sprite2D" parent="Board/balls_guide"]
+position = Vector2(934.5, 217)
+scale = Vector2(0.225695, 0.222222)
+texture = ExtResource("24_3stmm")
 
 [node name="list" type="Sprite2D" parent="Board/balls_guide"]
 position = Vector2(1042, 298.5)
@@ -310,8 +310,8 @@ position = Vector2(41, 65)
 script = ExtResource("20_pjohb")
 
 [node name="Mac" type="Sprite2D" parent="up_next"]
-position = Vector2(198.14, 88)
-scale = Vector2(0.258906, 0.26)
+position = Vector2(199.5, 88)
+scale = Vector2(0.157385, 0.159806)
 texture = ExtResource("5_f44yp")
 
 [node name="feature" type="Sprite2D" parent="up_next"]
@@ -320,11 +320,11 @@ position = Vector2(199, 88)
 scale = Vector2(0.253906, 0.257813)
 texture = ExtResource("6_pqrlx")
 
-[node name="chim" type="Sprite2D" parent="up_next"]
+[node name="kittrz" type="Sprite2D" parent="up_next"]
 visible = false
-position = Vector2(198, 88)
-scale = Vector2(0.257812, 0.257812)
-texture = ExtResource("8_k6rbq")
+position = Vector2(200, 87.5)
+scale = Vector2(0.229167, 0.232639)
+texture = ExtResource("24_3stmm")
 
 [node name="duck" type="Sprite2D" parent="up_next"]
 visible = false

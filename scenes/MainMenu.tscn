@@ -152,7 +152,7 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 53
 text = "Lil-þitch-Suika"
 
-[node name="Label" type="Label" parent="title"]
+[node name="Splash" type="Label" parent="title"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.285319
@@ -168,7 +168,7 @@ script = ExtResource("2_x2scc")
 splash_array = ["Google, Show me this guy's suikas", "We Love Fusing Balls", "Try Minecraft!", "Philosophically jumbled fruit salad", "test_string", "Play with your friend! (singular)"]
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="title/Label"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="title/Splash"]
 libraries = {
 "": SubResource("AnimationLibrary_ayu58")
 }
@@ -181,12 +181,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -91.0
-offset_top = -39.0
+offset_left = -302.0
+offset_top = -73.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 25
-text = "v0.0.6
+text = "v0.0.7
+Development in Progress
 "
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -298,8 +299,8 @@ anchor_top = 0.708333
 anchor_right = 0.418404
 anchor_bottom = 0.854938
 offset_top = -3.05176e-05
-theme_override_font_sizes/font_size = 20
-text = "\"who was that?\""
+theme_override_font_sizes/font_size = 43
+text = "Cast"
 script = ExtResource("6_pdpyb")
 metadata/_edit_use_anchors_ = true
 

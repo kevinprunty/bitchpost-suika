@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Bio_Resource" load_steps=3 format=3 uid="uid://csw3eq5ldhacx"]
+
+[ext_resource type="Texture2D" uid="uid://bl2o4t3g8uyy4" path="res://sprites/fruits/circles/duckaccino.png" id="1_0isgh"]
+[ext_resource type="Script" path="res://scenes/bio-bubbles/Bio-Resources/Template/Bio_Resource_Script.gd" id="1_hxutg"]
+
+[resource]
+script = ExtResource("1_hxutg")
+Name = "Duckaccino"
+Bio = "No Enemies."
+Pfp_Source = "k pop i think. gonna be changed."
+Pfp_Texture = ExtResource("1_0isgh")

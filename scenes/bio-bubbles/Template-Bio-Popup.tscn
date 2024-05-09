@@ -1,0 +1,117 @@
+[gd_scene load_steps=4 format=3 uid="uid://bq4dc677bib8d"]
+
+[ext_resource type="Script" path="res://Scripts/Bio-Popup-Filler.gd" id="1_rwohu"]
+[ext_resource type="Script" path="res://Scripts/close button.gd" id="2_2s3pb"]
+[ext_resource type="Texture2D" uid="uid://q4h3w12bqsnl" path="res://sprites/fruits/circles/placeholder.png" id="2_13qj7"]
+
+[node name="Template-bio-popup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rwohu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0685764
+anchor_top = 0.087963
+anchor_right = 0.930556
+anchor_bottom = 0.91821
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="close button" type="Button" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.934996
+anchor_right = 1.0
+anchor_bottom = 0.106624
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 40
+text = "X"
+flat = true
+icon_alignment = 1
+script = ExtResource("2_2s3pb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Bio Area" type="Control" parent="ColorRect"]
+anchors_preset = 0
+anchor_left = 0.021148
+anchor_top = 0.267658
+anchor_right = 0.758308
+anchor_bottom = 0.949814
+metadata/_edit_use_anchors_ = true
+
+[node name="Bio Label" type="Label" parent="ColorRect/Bio Area"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "	placeholder text - Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem. In porttitor. Donec laoreet nonummy augue. Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy."
+autowrap_mode = 3
+
+[node name="Name Area" type="Control" parent="ColorRect"]
+anchors_preset = 0
+anchor_left = 0.021148
+anchor_top = 0.0780669
+anchor_right = 0.590131
+anchor_bottom = 0.228625
+metadata/_edit_use_anchors_ = true
+
+[node name="Name Label" type="Label" parent="ColorRect/Name Area"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.29558
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "placeholder Name text"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Pic Source" type="Control" parent="ColorRect"]
+layout_mode = 1
+anchor_left = 0.774421
+anchor_top = 0.537175
+anchor_right = 0.98288
+anchor_bottom = 0.715613
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Source Label" type="Label" parent="ColorRect/Pic Source"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Placeholder Picture Source Text"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Pic Area" type="Control" parent="ColorRect"]
+anchors_preset = 0
+offset_left = 769.0
+offset_top = 63.0
+offset_right = 976.0
+offset_bottom = 269.0
+
+[node name="Pic Texture" type="TextureRect" parent="ColorRect/Pic Area"]
+layout_mode = 0
+offset_right = 207.0
+offset_bottom = 208.0
+texture = ExtResource("2_13qj7")
+expand_mode = 1
+
+[connection signal="pressed" from="ColorRect/close button" to="ColorRect/close button" method="_on_pressed"]

@@ -16,12 +16,6 @@ script = ExtResource("1_s0ecc")
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 z_index = -3
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-z_index = 1
-position = Vector2(-9.53674e-07, -7.15256e-07)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("1_bimf0")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 scale = Vector2(1.3, 1.3)
 shape = SubResource("CircleShape2D_4a07v")
@@ -33,5 +27,11 @@ script = ExtResource("3_64y28")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Combine Hitbox"]
 scale = Vector2(1.265, 1.265)
 shape = SubResource("CircleShape2D_0knxa")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D/Combine Hitbox"]
+z_index = 1
+position = Vector2(1.83399e-06, -1.83399e-06)
+scale = Vector2(0.081952, 0.081952)
+texture = ExtResource("1_bimf0")
 
 [connection signal="area_entered" from="RigidBody2D/Combine Hitbox" to="." method="_on_combine_hitbox_area_entered"]

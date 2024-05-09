@@ -2,7 +2,7 @@ extends Node
 #ggg
 var cherry = preload("res://balls/Mac.tscn")
 var strawberry = preload("res://balls/itsafeature.tscn")
-var grape = preload("res://balls/achim.tscn")
+var grape = preload("res://balls/Kittrz.tscn")
 var tang = preload("res://balls/Duckaccino.tscn")
 var win_menu = preload("res://scenes/win_menu.tscn")
 

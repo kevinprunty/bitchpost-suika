@@ -162,19 +162,19 @@ position = Vector2(28, 77)
 
 [node name="Mac" parent="Game/up_next" index="0"]
 position = Vector2(519, 31)
-scale = Vector2(0.183594, 0.183594)
+scale = Vector2(0.116223, 0.116223)
 
 [node name="feature" parent="Game/up_next" index="1"]
 position = Vector2(519.25, 31)
 scale = Vector2(0.185546, 0.1875)
 
-[node name="chim" parent="Game/up_next" index="2"]
+[node name="kittrz" parent="Game/up_next" index="2"]
 position = Vector2(519, 31)
-scale = Vector2(0.1875, 0.1875)
+scale = Vector2(0.166667, 0.166667)
 
 [node name="duck" parent="Game/up_next" index="3"]
 position = Vector2(519, 31)
-scale = Vector2(0.123, 0.123)
+scale = Vector2(0.162712, 0.162712)
 
 [node name="Game2" parent="." node_paths=PackedStringArray("other_player") instance=ExtResource("1_rcnip")]
 other_player = NodePath("../Game")
@@ -228,20 +228,20 @@ position = Vector2(476, 217)
 position = Vector2(37, 77)
 
 [node name="Mac" parent="Game2/up_next" index="0"]
-position = Vector2(569, 31)
-scale = Vector2(0.19375, 0.186031)
+position = Vector2(568, 31)
+scale = Vector2(0.116223, 0.116223)
 
 [node name="feature" parent="Game2/up_next" index="1"]
-position = Vector2(569, 31)
-scale = Vector2(0.19375, 0.1875)
+position = Vector2(568.1, 31)
+scale = Vector2(0.186719, 0.1875)
 
-[node name="chim" parent="Game2/up_next" index="2"]
-position = Vector2(569, 32)
-scale = Vector2(0.195313, 0.195313)
+[node name="kittrz" parent="Game2/up_next" index="2"]
+position = Vector2(568, 30.75)
+scale = Vector2(0.166667, 0.168403)
 
 [node name="duck" parent="Game2/up_next" index="3"]
-position = Vector2(569, 32)
-scale = Vector2(0.1275, 0.1275)
+position = Vector2(568, 31)
+scale = Vector2(0.162712, 0.162712)
 
 [editable path="Game"]
 [editable path="Game2"]

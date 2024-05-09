@@ -4,7 +4,7 @@ extends Node
 
 
 var strawberry = preload("res://balls/itsafeature.tscn")
-var grape = preload("res://balls/achim.tscn")
+var grape = preload("res://balls/Kittrz.tscn")
 var tangerine = preload("res://balls/Duckaccino.tscn")
 var orange = preload("res://balls/salami.tscn")
 var apple = preload("res://balls/List.tscn")

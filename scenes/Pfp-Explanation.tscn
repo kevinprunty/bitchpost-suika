@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0dl817w0p338"]
+[gd_scene load_steps=14 format=3 uid="uid://d0dl817w0p338"]
 
 [ext_resource type="Texture2D" uid="uid://blhyofcypcujr" path="res://sprites/fruits/circles/mac.png" id="1_760mt"]
+[ext_resource type="Script" path="res://Scripts/Pfp-Explanation.gd" id="1_a1cji"]
 [ext_resource type="Texture2D" uid="uid://gl6idtlrlts1" path="res://sprites/fruits/circles/TOASTER.png" id="2_ajbue"]
 [ext_resource type="Texture2D" uid="uid://cmbutay2mpqcb" path="res://sprites/fruits/circles/feature.png" id="2_domrj"]
-[ext_resource type="Texture2D" uid="uid://ctfollchk4wb6" path="res://sprites/fruits/circles/chim.png" id="3_wamow"]
+[ext_resource type="Texture2D" uid="uid://bngxihheymywt" path="res://sprites/fruits/circles/kittrz.png" id="4_45vh2"]
 [ext_resource type="Texture2D" uid="uid://bl2o4t3g8uyy4" path="res://sprites/fruits/circles/duckaccino.png" id="4_g0jm5"]
 [ext_resource type="Texture2D" uid="uid://ck4ckaojt0ghg" path="res://sprites/fruits/circles/salami.png" id="5_lj3ii"]
 [ext_resource type="Texture2D" uid="uid://dkpvppq451o5e" path="res://sprites/fruits/circles/list.png" id="7_h6wr6"]
@@ -22,6 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_a1cji")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -41,15 +43,14 @@ color = Color(0.0901961, 0.0823529, 0.0745098, 1)
 [node name="ItemList" type="ItemList" parent="ColorRect"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.231523
-anchor_top = 0.33441
-anchor_right = 0.795191
-anchor_bottom = 0.825525
-offset_left = -205.0
-offset_right = 177.0
+anchor_left = 0.048976
+anchor_top = 0.347334
+anchor_right = 0.952805
+anchor_bottom = 0.831987
+offset_bottom = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/guide_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 allow_search = false
 item_count = 11
 max_columns = 6
@@ -60,8 +61,8 @@ item_0/text = "Mac"
 item_0/icon = ExtResource("1_760mt")
 item_1/text = "Itsafeature"
 item_1/icon = ExtResource("2_domrj")
-item_2/text = "Achim"
-item_2/icon = ExtResource("3_wamow")
+item_2/text = "Kittrz"
+item_2/icon = ExtResource("4_45vh2")
 item_3/text = "Duckaccino"
 item_3/icon = ExtResource("4_g0jm5")
 item_4/text = "Salami"
@@ -78,6 +79,7 @@ item_9/text = "Blue Aura"
 item_9/icon = ExtResource("10_y6vdu")
 item_10/text = "SimpleFlips"
 item_10/icon = ExtResource("11_74xq2")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="ColorRect"]
 layout_mode = 0
@@ -98,14 +100,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -417.5
-offset_top = 29.5
-offset_right = 420.5
-offset_bottom = 107.5
+offset_left = -534.5
+offset_top = 27.5
+offset_right = 537.5
+offset_bottom = 118.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 22
-text = "(screen is unfinished, expect missing bios)
+theme_override_font_sizes/font_size = 19
+text = "Content Sparce atm. if you are on here, u can write ur own bio if you want, it doesnt have to be long.
+or just dm me (lami) stuff you want me to mention in it
 also spoilers, duh"
 horizontal_alignment = 1
 
@@ -123,4 +126,6 @@ icon_alignment = 1
 script = ExtResource("12_la4f8")
 metadata/_edit_use_anchors_ = true
 
+[connection signal="item_activated" from="ColorRect/ItemList" to="." method="_on_item_list_item_activated"]
+[connection signal="item_selected" from="ColorRect/ItemList" to="." method="_on_item_list_item_selected"]
 [connection signal="pressed" from="ColorRect/close button" to="ColorRect/close button" method="_on_pressed"]
