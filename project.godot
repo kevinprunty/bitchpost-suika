@@ -33,6 +33,10 @@ SettingsSignalBus="*res://Scripts/Settings_Signal_Bus.gd"
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="lil-bitch-suika"
+
 [input]
 
 p1_left={

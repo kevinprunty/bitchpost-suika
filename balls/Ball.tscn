@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0lylf52wgdwx"]
+
+[ext_resource type="Script" path="res://balls/Ball.gd" id="1_24x4s"]
+[ext_resource type="Texture2D" uid="uid://d3qj6h24k30lo" path="res://sprites/fruits/circles/blue.png" id="2_ih8m1"]
+[ext_resource type="Script" path="res://balls/method_scripts/melon_method.gd" id="3_tn3mq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ljg8n"]
+radius = 101.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw11h"]
+radius = 102.0
+
+[node name="Blueaura" type="Node2D" groups=["ball"]]
+script = ExtResource("1_24x4s")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(6.19888e-06, -0.500002)
+scale = Vector2(0.696, 0.693)
+texture = ExtResource("2_ih8m1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_ljg8n")
+
+[node name="combine hitbox" type="Area2D" parent="RigidBody2D"]
+script = ExtResource("3_tn3mq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/combine hitbox"]
+shape = SubResource("CircleShape2D_vw11h")
+
+[connection signal="area_entered" from="RigidBody2D/combine hitbox" to="." method="_on_combine_hitbox_area_entered"]
