@@ -51,9 +51,5 @@ func load_settings_data() -> void:
 		
 		loaded_data = json.get_data()
 	SettingsSignalBus.emit_load_settings_data(loaded_data)
-<<<<<<< Updated upstream
 	SettingsContainer.on_keybinds_loaded(loaded_data.keybinds)
 	#print_debug("loaded data emited as ", loaded_data)
-
-=======
->>>>>>> Stashed changes

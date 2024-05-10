@@ -1,11 +1,7 @@
 extends Node
 
-<<<<<<< Updated upstream
 @onready var DEFAULT_SETTINGS : DefaultSettingsResource = preload("res://Resources/Settings/DEFAULT_SETTINGS.tres")
 var keybind_resource: PlayerKeybindsResource = preload("res://Resources/KeyBinds/Player_Keybinds_Default.tres")
-=======
-@onready var DEFAULT_SETTINGS : DefaultSettingsResource = preload("res://Resources/Settings/Default_Settings.tres")
->>>>>>> Stashed changes
 
 var window_mode_index : int = 0
 var resolution_index : int = 0
@@ -19,11 +15,6 @@ var loaded_data : Dictionary = {}
 func _ready():
 	handle_signals()
 	create_storage_dictionary()
-<<<<<<< Updated upstream
-
-=======
-	
->>>>>>> Stashed changes
 
 func create_storage_dictionary() -> Dictionary:
 	var settings_container_dict : Dictionary = {
@@ -33,7 +24,6 @@ func create_storage_dictionary() -> Dictionary:
 		"music_volume" : music_volume,
 		"sfx_volume" : sfx_volume,
 		"classic_3_combine_state" : classic_3_combine_state,
-<<<<<<< Updated upstream
 		"keybinds" : create_keybinds_dictionary(),
 		}
 	return settings_container_dict
@@ -51,11 +41,6 @@ func create_keybinds_dictionary() -> Dictionary:
 	}
 	return keybinds_container_dict
 
-=======
-		}
-	return settings_container_dict
-
->>>>>>> Stashed changes
 ## GETTING FUNCTIONS, FOR GETTING
 
 func get_window_mode_index() -> int:
@@ -88,7 +73,6 @@ func get_classic_3_combine_state() -> bool:
 		return DEFAULT_SETTINGS.DEFAULT_CLASSIC_3_COMBINE_STATE
 	return classic_3_combine_state
 
-<<<<<<< Updated upstream
 func get_keybind(action : String):
 	if !loaded_data.has("keybinds"):
 		match action:
@@ -127,8 +111,6 @@ func get_keybind(action : String):
 			keybind_resource.P2_QUIT:
 				return keybind_resource.p2_quit_key
 
-=======
->>>>>>> Stashed changes
 #SETTING FUNC FOR SETTING
 
 func on_window_mode_selected(index : int) -> void:
@@ -148,7 +130,6 @@ func on_sfx_sound_set(value : float) -> void:
 
 func on_classic_3_combine_toggled(value : bool) -> void:
 	classic_3_combine_state = value
-<<<<<<< Updated upstream
 
 func set_keybind(action: String, event: InputEventKey) -> void:
 	match action:
@@ -199,13 +180,6 @@ func on_keybinds_loaded(data : Dictionary) -> void:
 	keybind_resource.p2_quit_key = loaded_p2_quit
 
 func on_settings_data_loaded(data : Dictionary) -> void:
-=======
-	#debug print, for testing.
-	print(classic_3_combine_state)
-
-func on_settings_data_loaded(data : Dictionary) -> void:
-	print("happened")
->>>>>>> Stashed changes
 	loaded_data = data
 	on_window_mode_selected(loaded_data.window_mode_index)
 	on_resolution_selected(loaded_data.resolution_index)
@@ -213,11 +187,8 @@ func on_settings_data_loaded(data : Dictionary) -> void:
 	on_music_sound_set(loaded_data.music_volume)
 	on_sfx_sound_set(loaded_data.sfx_volume)
 	on_classic_3_combine_toggled(loaded_data.classic_3_combine_state)
-<<<<<<< Updated upstream
 	on_keybinds_loaded(loaded_data.keybinds)
-=======
 
->>>>>>> Stashed changes
 
 func handle_signals() -> void:
 	SettingsSignalBus.on_window_mode_selected.connect(on_window_mode_selected)
