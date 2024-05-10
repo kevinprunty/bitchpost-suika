@@ -2,7 +2,7 @@ extends Node
 
 @onready var UserSettings = $".."
 
-
+var ball = preload("res://balls/Ball.gd")
 var strawberry = preload("res://balls/itsafeature.tscn")
 var grape = preload("res://balls/Kittrz.tscn")
 var tangerine = preload("res://balls/Duckaccino.tscn")
@@ -14,6 +14,7 @@ var pineapple = preload("res://balls/Toaster.tscn")
 var melon = preload("res://balls/blueaura.tscn")
 var watermelon = preload("res://balls/simpleflips.tscn")
 var win_menu = preload("res://scenes/win_menu.tscn")
+
 
 var cherry_pos_array: Array
 var strawberry_pos_array: Array
@@ -46,7 +47,8 @@ func _process(_delta):
 		var pos_1 = cherry_pos_array.pop_front()
 		var pos_2 = cherry_pos_array.pop_front()
 		var new_ball_spawn_pos = (pos_1 + pos_2)/2
-		var instance = strawberry.instantiate()
+		# var instance = strawberry.instantiate()
+		var instance = Ball.new_ball("Evil", 3, "res://sprites/aj.png")
 		instance.position.x = new_ball_spawn_pos.x
 		instance.position.y = new_ball_spawn_pos.y
 		add_child(instance)

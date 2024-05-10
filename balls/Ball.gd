@@ -1,7 +1,7 @@
 class_name Ball
 extends Node2D
 
-const Ball_Scene := preload("res://balls/Ball_Object.tscn")
+const Ball_Scene := preload("res://balls/Ball.tscn")
 
 # Size constraint lookup for balls
 const SIZES = [34, 55, 68, 90, 106, 122, 138, 162, 183, 201, 216]
@@ -14,10 +14,10 @@ var ball_name: String
 var image: String
 var size: int
 
-static func new_ball(ball_name: String, size: int, image: String):
-	var new_ball: Ball = Ball_Scene.instantiate()
-	new_ball.ball_name = ball_name
-	new_ball.image = image
+static func new_ball(ball_name: String, size: int, image: String) -> Ball:
+	var ball = Ball_Scene.instantiate()
+	ball.ball_name = ball_name
+	ball.image = image
 	
 	# Determine size #
 	# 1. Size should be in range [0-SIZES.size()) 
@@ -29,23 +29,37 @@ static func new_ball(ball_name: String, size: int, image: String):
 	# Do nothing if size is too small, because it's preset to 0.
 	
 	#2. Set size
-	new_ball.size = SIZES[adjusted_size]
+	ball.size = SIZES[adjusted_size]
 	
-	return new_ball
+	return ball
 	
 
 
 # Function for automatically resizing sprites to be the correct dimensions.
 func resize(sprite: Sprite2D):
 	var x = sprite.texture.get_width()
+	print("Width: {0}".format([x]))
 	var y = sprite.texture.get_height()
+	print("Height: {0}".format([y]))
+	
+	print("Size: %d" % size )
 	
 	# Get the scale that will resize the object appropriately
-	var x_scale := float(x) / size
-	var y_scale := float(y) / size
+	var x_scale := size / float(x)
+	print("X_Scale: {0}".format([x_scale]))
+	var y_scale := size / float(y)
+	print("Y_Scale: {0}".format([y_scale]))
 	
 	sprite.scale.x = x_scale
 	sprite.scale.y = y_scale
+	
+	# Resize physics bounds
+	var collision_shape = get_node("RigidBody2D/CollisionShape2D")
+	collision_shape.shape.radius = floor((sprite.texture.get_width() * x_scale) / 2)
+
+	
+	
+	
 	return sprite
 	
 
@@ -54,9 +68,15 @@ func resize(sprite: Sprite2D):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	sprite = get_node("RigidBody2D/Sprite2D")
+	
+	if (image):
+		sprite.texture = load(image)
+	else:
+		sprite.texture = load("res://sprites/fruits/circles/unknown.png")
+	
 	resize(sprite)
 	
-	pass # Replace with function body.
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
