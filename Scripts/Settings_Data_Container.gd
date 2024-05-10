@@ -16,7 +16,6 @@ func _ready():
 	handle_signals()
 	create_storage_dictionary()
 
-
 func create_storage_dictionary() -> Dictionary:
 	var settings_container_dict : Dictionary = {
 		"window_mode_index" : window_mode_index,
@@ -189,6 +188,7 @@ func on_settings_data_loaded(data : Dictionary) -> void:
 	on_sfx_sound_set(loaded_data.sfx_volume)
 	on_classic_3_combine_toggled(loaded_data.classic_3_combine_state)
 	on_keybinds_loaded(loaded_data.keybinds)
+
 
 func handle_signals() -> void:
 	SettingsSignalBus.on_window_mode_selected.connect(on_window_mode_selected)

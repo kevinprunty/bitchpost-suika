@@ -40,7 +40,6 @@ func _unhandled_input(_event):
 
 func load_settings_data() -> void:
 	if not FileAccess.file_exists(SETTINGS_SAVE_PATH):
-		#print("settings file does not exsist")
 		return
 	var save_settings_data_file = FileAccess.open(SETTINGS_SAVE_PATH, FileAccess.READ)
 	var loaded_data : Dictionary = {}
@@ -54,4 +53,3 @@ func load_settings_data() -> void:
 	SettingsSignalBus.emit_load_settings_data(loaded_data)
 	SettingsContainer.on_keybinds_loaded(loaded_data.keybinds)
 	#print_debug("loaded data emited as ", loaded_data)
-
